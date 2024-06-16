@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Catalog</title>
+    <link rel="stylesheet" href="../css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="../css/bootstrapsuccess.min.css">
+    <link rel="stylesheet" href="../css/templatemo-video-catalog.css">
+<!--
+
+TemplateMo 552 Video Catalog
+
+https://templatemo.com/tm-552-video-catalog
+
+-->
+
+<!--header css-->
+<style>
+     #fh5co-header-section {
+  padding: 0;
+  position: relative;
+  left: 0;
+  width: 100%;
+  z-index: 1022;
+  background: #fff;
+}
+
+.nav-header {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+#fh5co-logo {
+  position: relative;
+  z-index: 2;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-top: 35px;
+  font-weight: 700;
+  float: left;
+}
+#fh5co-logo span {
+  font-weight: 700;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-logo {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+}
+#fh5co-logo a {
+  color: #ff5722;
+}
+#fh5co-logo a:hover, #fh5co-logo a:focus {
+  color: #ff5722 !important;
+}
+
+#fh5co-menu-wrap {
+  position: relative;
+  z-index: 2;
+  display: block;
+  float: right;
+  margin-top: 15px;
+}
+
+#fh5co-primary-menu {
+    margin-right: 0; /* Adjust the margin as needed */
+}
+
+#fh5co-primary-menu li {
+    display: inline-block;
+    margin-right: 20px;
+    list-style: none; /* Remove default list styles */
+    color:rgba(0, 0, 0, 0.5);
+}
+
+#fh5co-primary-menu li:last-child {
+    margin-right: 0; /* Remove margin from the last list item */
+}
+
+
+
+#fh5co-primary-menu li.active a {
+    color: #ff0000;
+}
+#fh5co-menu-wrap .sf-menu a {
+  padding: 1em .75em;
+}
+
+#fh5co-primary-menu > li > ul li.active > a {
+  color: #ff5722 !important;
+}
+#fh5co-primary-menu > li > .sf-with-ul:after {
+  border: none !important;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  float: right;
+  margin-right: -0px;
+  top: 50%;
+  font-size: 12px;
+  margin-top: -7px;
+  content: "\e922";
+  color: rgba(0, 0, 0, 0.5);
+}
+#fh5co-primary-menu > li > ul li {
+  position: relative;
+}
+#fh5co-primary-menu > li > ul li > .sf-with-ul:after {
+  border: none !important;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  float: right;
+  margin-right: 10px;
+  top: 20px;
+  font-size: 12px;
+  content: "\e924";
+  color: rgba(0, 0, 0, 0.5);
+}
+
+#fh5co-primary-menu .fh5co-sub-menu a:hover {
+  color: #ff5722 !important;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+    <!--header-->
+    <header id="fh5co-header-section" class="sticky-banner">
+        <div class="container">
+          <div class="nav-header">
+            <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+            
+            <a ><img src="../images/logo.png" alt="Your Logo" style="max-width: 100px;" style="margin-top: 0%;" ></a>
+            <!-- START #fh5co-menu-wrap -->
+            <nav id="fh5co-menu-wrap" role="navigation">
+              <ul class="sf-menu" id="fh5co-primary-menu">
+                <li class="active">
+                  <a href="../View/index.html">Home</a>
+                </li>
+                <li>
+                  <a href="../View/donate.html" class="fh5co-sub-ddown">Donate</a>
+                  
+                </li>
+                <li>
+                  <a href="../View/success.html" class="fh5co-sub-ddown">Success stories</a>
+                   
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+    
+            <div class="tm-welcome-container text-center text-white">
+                <div class="tm-welcome-container-inner">
+                    <p class="tm-welcome-text mb-1 text-white">Thank you for becoming a beacon of hope. Together, we're changing lives</p>
+                    <p class="tm-welcome-text mb-5 text-white">We share our success with you</p>
+                    
+                </div>
+            </div>
+
+            <div id="tm-video-container">
+                <video autoplay muted loop id="tm-video">
+                    <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
+                        <source src="../video/children.mp4" type="video/mp4">
+                </video>    
+            </div>
+            
+            <i id="tm-video-control-button" class="fas fa-pause"></i>
+        </div>
+
+        <div class="container-fluid">
+            <div id="content" class="mx-auto tm-content-container">
+                <main>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="tm-page-title mb-4">Our Achievements</h2>
+                                  
+                        </div>
+                    </div>
+                    
+                    <div class="row tm-catalog-item-list">
+                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                            <div class="position-relative tm-thumbnail-container">
+                                <img src="../images/image2.png" alt="Image" class="img-fluid tm-catalog-item-img">    
+                                
+                                    <i class="fas fa-play tm-overlay-icon"></i>
+                                </a>
+                            </div>    
+                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Reaching Diverse Demographics</h3>
+                                <p class="tm-catalog-item-text">Over 2000 lives impacted: This includes a diverse range 
+                                    of people, such as juveniles, street residents, basic school students,
+                                    and orphanages. Our programs seem to have reached a broad spectrum of society.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                            <div class="position-relative tm-thumbnail-container">
+                                <img src="../images/image13.png" alt="Image" class="img-fluid tm-catalog-item-img">    
+                               
+                                    <i class="fas fa-play tm-overlay-icon"></i>
+                                </a>
+                            </div>
+                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Rehabilitation Success</h3>
+                                <p class="tm-catalog-item-text">Two former inmates who participated in our 
+                                    vocational training programme during their 
+                                    incarceration at the Senior Correctional Centre
+                                     have been motivated to start their own businesses. 
+                                     This demonstrates the effectiveness of your rehabilitation 
+                                     efforts in empowering individuals to reintegrate into society 
+                                     successfully.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                            <div class="position-relative tm-thumbnail-container">
+                                <img src="../images/image3.png" alt="Image" class="img-fluid tm-catalog-item-img">    
+                               
+                                    <i class="fas fa-play tm-overlay-icon"></i>
+                                </a>
+                            </div>                            
+                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Academic Empowerment</h3>
+                                <p class="tm-catalog-item-text">We supported 3 to 4 WASSCE students at 
+                                    Kumasi Anglican Senior High School, 
+                                    who performed well in their exams with
+                                     our assistance. This highlights the impact
+                                      of our educational support programs in helping
+                                       students achieve academic success</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                            <div class="position-relative tm-thumbnail-container">
+                                <img src="../images/image12.png" alt="Image" class="img-fluid tm-catalog-item-img">    
+                                
+                                    <i class="fas fa-play tm-overlay-icon"></i>
+                                </a>
+                            </div>    
+                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Fostering Success in Education</h3>
+                                <p class="tm-catalog-item-text">3 students at La Wireless (JHS ) received stationery 
+                                    assistance from the organization for their Basic 
+                                    Education Certification Examination. This support 
+                                    helped to alleviate financial burdens and enabled students 
+                                    to focus on their studies.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                            <div class="position-relative tm-thumbnail-container">
+                                <img src="../images/image1.png" alt="Image" class="img-fluid tm-catalog-item-img">    
+                                
+                                    <i class="fas fa-play tm-overlay-icon"></i>
+                                </a>
+                            </div>
+                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Educational Support</h3>
+                                <p class="tm-catalog-item-text">The organization provided Personal Protective Equipment (PPE) 
+                                    to rural community schools to combat 
+                                    the spread of COVID-19. This demonstrates
+                                     our commitment to addressing pressing public 
+                                     health concerns and ensuring the safety of vulnerable
+                                      populations, particularly in rural areas.</p>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                            <div class="position-relative tm-thumbnail-container">
+                                <img src="../images/benaksphoto1.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
+                                
+                                    <i class="fas fa-play tm-overlay-icon"></i>
+                                </a>
+                            </div>                            
+                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Impactful Outreach</h3>
+                                <p class="tm-catalog-item-text">Our organization's efforts have made a meaningful difference in the lives of many individuals and communities,
+                                     ranging from educational support to charity assistance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </main>
+            </div>
+        </div>
+        
+
+               
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function setVideoSize() {
+            const vidWidth = 1920;
+            const vidHeight = 1080;
+            let windowWidth = window.innerWidth;
+            let newVidWidth = windowWidth;
+            let newVidHeight = windowWidth * vidHeight / vidWidth;
+            let marginLeft = 0;
+            let marginTop = 0;
+
+            if (newVidHeight < 500) {
+                newVidHeight = 500;
+                newVidWidth = newVidHeight * vidWidth / vidHeight;
+            }
+
+            if(newVidWidth > windowWidth) {
+                marginLeft = -((newVidWidth - windowWidth) / 2);
+            }
+
+            if(newVidHeight > 720) {
+                marginTop = -((newVidHeight - $('#tm-video-container').height()) / 2);
+            }
+
+            const tmVideo = $('#tm-video');
+
+            tmVideo.css('width', newVidWidth);
+            tmVideo.css('height', newVidHeight);
+            tmVideo.css('margin-left', marginLeft);
+            tmVideo.css('margin-top', marginTop);
+        }
+
+        $(document).ready(function () {
+            /************** Video background *********/
+
+            setVideoSize();
+
+            // Set video background size based on window size
+            let timeout;
+            window.onresize = function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(setVideoSize, 100);
+            };
+
+            // Play/Pause button for video background      
+            const btn = $("#tm-video-control-button");
+
+            btn.on("click", function (e) {
+                const video = document.getElementById("tm-video");
+                $(this).removeClass();
+
+                if (video.paused) {
+                    video.play();
+                    $(this).addClass("fas fa-pause");
+                } else {
+                    video.pause();
+                    $(this).addClass("fas fa-play");
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
