@@ -1,0 +1,106 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color:#7ea5e3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header-image, .footer-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-image img, .footer-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 500px;  /* Container width */
+    max-width: 100%; /* Responsiveness */
+    margin-top: -60px;  /* Move the form slightly up to adjust for top image */
+}
+
+.org-name {
+    text-align: center;
+    font-size: 28px;
+    color: #202124;
+    margin-bottom: 20px;
+}
+
+.donation-message {
+    text-align: center;
+    color: #5f6368;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    color: #202124;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+input, select, textarea {
+    padding: 12px;
+    margin-bottom: 20px; /* Increase space between inputs */
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #202124;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #4285f4;  /* Google-like blue focus */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;  /* Taller textarea */
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #4285f4;  /* Google blue */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #3367d6;  /* Darker blue on hover */
+}
+
+button:focus {
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+}

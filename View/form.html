@@ -1,0 +1,76 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form - BENAKS Organization</title>
+
+
+<link rel="stylesheet" href="../css/form.css">
+
+
+
+<!-- Include Swiper.js CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
+
+</head>
+<body>
+
+   
+
+    <div class="container">
+        <!-- Organization Name -->
+        <h1 class="org-name">Wokovuway</h1>
+         <!-- Top Image -->
+    <div class="header-image">
+        <img src="../images/roof.JPG" alt="Organization Image" />
+    </div>
+        
+        <!-- Donation Message -->
+        <p class="donation-message">
+            Thank you for your donation to <strong>Wokovuway Oranization</strong>. We assure you that every donation in cash and kind will be used for the benefit of the lives this organization is able to touch.
+        </p>
+
+        <!-- Donation Form -->
+        <form action="submit-donation.php" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="donation">Donation Type:</label>
+            <select id="donation" name="donation">
+                <option value="clothes">Clothes</option>
+                <option value="food">Food</option>
+                <option value="water">Water</option>
+                <option value="stationery">Stationery</option>
+            </select>
+
+            <label for="message">Additional Details:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Submit Donation</button>
+        </form>
+    </div>
+
+   
+
+</body>
+</html>
