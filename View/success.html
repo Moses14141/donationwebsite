@@ -27,6 +27,7 @@
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="favicon.ico">
 
+
 <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,9 +35,11 @@
 <link rel="stylesheet" href="../css/all.min.css"> <!-- https://fontawesome.com/ -->
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 <!-- https://fonts.google.com/ -->
+ 
 <link rel="stylesheet" href="../css/bootstrapsuccess.min.css">
 <link rel="stylesheet" href="../css/templatemo-video-catalog.css">
 <link rel="stylesheet" href="../css/style.css"
+
 
 
 
@@ -58,7 +61,7 @@
 
 
 
-
+<link rel="stylesheet" href="../css/success.css">
 
 
 
@@ -70,38 +73,46 @@
 </head>
 <body>
 
-    <header id="fh5co-header-section" class="sticky-banner">
-        <div class="container">
-            <div class="nav-header">
-                <a href="index.html" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-                
-                <a href="#">
-                    <img src="../images/logos1.png" alt="Your Logo" style="max-width: 110px; margin-top: 0%;">
-                    <span style="font-size: 18px; font-weight: bold; margin-left: 10px;">Wokovuway Org</span>
-                </a>                <!-- START #fh5co-menu-wrap -->
-                <nav id="fh5co-menu-wrap" role="navigation">
-                    <ul class="sf-menu" id="fh5co-primary-menu">
-                        <li class="active">
-                            <a href="../View/index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="../View/donate.html" class="fh5co-sub-ddown">Donate</a>
-                            
-                        </li>
-                        <li>
-                            <a href="../View/about.html" class="fh5co-sub-ddown">About us</a>
-                            
-                        </li>
-                        <li>
-                            <a href="../View/success.html" class="fh5co-sub-ddown">Success stories</a>
-                             
-                        </li>
-                        <li><a href="../View/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+	<header id="fh5co-header-section" class="sticky-banner">
+		<div class="container">
+			<div class="nav-header">
+				<button class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
+					<i class="fa fa-bars"></i>
+				  </button>
+				  
+				
+				<a href="#">
+					<img src="../images/logos1.png" alt="Your Logo" style="max-width: 110px; margin-top: 0%;">
+					<span style="font-size: 18px; font-weight: bold; margin-left: 10px;">Wokovuway Org</span>
+				</a>
+									<!-- START #fh5co-menu-wrap -->
+				<nav id="fh5co-menu-wrap" role="navigation">
+					<ul class="sf-menu" id="fh5co-primary-menu">
+						<li class="active">
+							<a href="../View/index.html">Home</a>
+						</li>
+						<li>
+							<a href="../View/donate.html" class="fh5co-sub-ddown">Donate</a>
+							 
+						</li>
+						<li>
+							<a href="../View/about.html" class="fh5co-sub-ddown">About us</a>
+							
+						</li>
+						<li>
+							<a href="../View/success.html" class="fh5co-sub-ddown">Success stories</a>
+							 
+						</li>
+						<li><a href="../View/contact.html">Contact</a></li>
+						<li class="mobile-donate">
+					   <a href="../View/donate.html" class="donate-button">💖 Donate Now</a>
+						</li>
+
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
 
 
 
@@ -117,16 +128,6 @@
 
 
 
-
-<div class="tm-welcome-container text-center text-white">
-<div class="tm-welcome-container-inner">
-<p class="tm-welcome-text mb-1 text-white">Thank you for being a light of hope. Together, we're making a difference in the lives of many.
-
-</p>
-<p class="tm-welcome-text mb-5 text-white">We owe our success to you.</p>
-
-</div>
-</div>
 
 <div id="tm-video-container">
 <video autoplay muted loop id="tm-video">
@@ -134,6 +135,9 @@
 <source src="../video//Camp_displace_fam.mp4" type="video/mp4">
 </video>
 </div>
+
+
+
 
 <i id="tm-video-control-button" class="fas fa-pause"></i>
 </div>
@@ -147,6 +151,18 @@
 
 </div>
 </div>
+
+
+
+<div class="tm-welcome-container text-center text-white">
+	<div class="tm-welcome-container-inner">
+	<p class="tm-welcome-text mb-1 text-white">Thank you for being a light of hope. Together, we're making a difference in the lives of many.
+	
+	</p>
+	<p class="tm-welcome-text mb-5 text-white">We owe our success to you.</p>
+	
+	</div>
+	</div>
 
 <div class="row tm-catalog-item-list">
 <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
@@ -329,6 +345,7 @@ ranging from educational support to charity assistance.</p>
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
 <script>
 function setVideoSize() {
 const vidWidth = 1920;
@@ -388,7 +405,28 @@ $(this).addClass("fas fa-play");
 }
 });
 })
+
+
 </script>
+
+
+
+	
+	
+	
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	  const toggleButton = document.querySelector(".js-fh5co-nav-toggle");
+	  const menu = document.getElementById("fh5co-menu-wrap");
+  
+	  if (toggleButton && menu) {
+		toggleButton.addEventListener("click", function () {
+		  menu.classList.toggle("active"); // Toggles a class to show/hide menu
+		});
+	  }
+	});
+  </script>
+
 </body>
 
 </html>

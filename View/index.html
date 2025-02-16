@@ -50,7 +50,10 @@
 		<header id="fh5co-header-section" class="sticky-banner">
 			<div class="container">
 				<div class="nav-header">
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+					<button class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
+						<i class="fa fa-bars"></i>
+					  </button>
+					  
 					
 					<a href="#">
 						<img src="../images/logos1.png" alt="Your Logo" style="max-width: 110px; margin-top: 0%;">
@@ -64,7 +67,7 @@
 							</li>
 							<li>
 								<a href="../View/donate.html" class="fh5co-sub-ddown">Donate</a>
-								
+						 		
 							</li>
 							<li>
 								<a href="../View/about.html" class="fh5co-sub-ddown">About us</a>
@@ -75,6 +78,10 @@
 								 
 							</li>
 							<li><a href="../View/contact.html">Contact</a></li>
+							<li class="mobile-donate">
+                           <a href="../View/donate.html" class="donate-button">💖 Donate Now</a>
+                            </li>
+
 						</ul>
 					</nav>
 				</div>
@@ -152,14 +159,15 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center heading-section">
-						<h3>Spread Joy, Give Freely.</h3>
-						<p>Invest in Tomorrow: Enabling Underprivileged Children through Education and Creativity</p>
+						<h3>Shaping Futures, Overcoming Challenges.</h3>
+						<p><p>Your generosity empowers children facing severe challenges, investing in their future through education and creative opportunities, helping them overcome adversity and build a brighter tomorrow.</p>
+					</p>
 					</div>
 				</div>
 
 				<div class="row row-bottom-padded-md">
 					<div class="col-md-12 text-center animate-box">
-						<p><img src="../images/uniform.jpg" class="img-responsive"></p>
+						<p><img src="../images/kid_Sm.jpg" class="img-responsive"></p>
 					</div>
 					
 					
@@ -188,7 +196,7 @@
 							<h3>Charity</h3>
 							<p>Compassion in action: our charity programs make a direct impact on the lives 
 								of those in need. Learn about the various ways we extend a helping hand to 
-								vulnerable communities in Congo. Your support enables us to provide essential 
+								vu lnerable communities in Congo. Your support enables us to provide essential 
 								resources and assistance to those who need it most.</p>
 						</div>
 					</div>
@@ -265,7 +273,7 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 						<h3>Support us</h3>
-						<p>Your kindness empowers us to continue our mission, fostering an environment where every child has the opportunity to learn, grow, and thrive</p>
+						<p>Your kindness empowers us to continue our mission, ensuring that families have access to food, shelter, and health, while creating an environment where every child has the opportunity to learn, grow, and thrive.</p>
 					</div>
 				</div>
 			</div>
@@ -361,5 +369,21 @@
 	<!-- END fh5co-wrapper -->
 
 
+	
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+		  const toggleButton = document.querySelector(".js-fh5co-nav-toggle");
+		  const menu = document.getElementById("fh5co-menu-wrap");
+	  
+		  if (toggleButton && menu) {
+			toggleButton.addEventListener("click", function () {
+			  menu.classList.toggle("active"); // Toggles a class to show/hide menu
+			});
+		  }
+		});
+	  </script>
+	  
 	</body>
+	
 </html>

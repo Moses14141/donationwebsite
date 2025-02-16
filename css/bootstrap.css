@@ -1993,6 +1993,48 @@ pre code {
 
 
 
+/* Adjustments for tablets (screens smaller than 992px) */
+@media screen and (max-width: 991px) {
+  .row {
+      margin-left: -10px;
+      margin-right: -10px;
+      padding-top: 40px;
+  }
+}
+
+/* Adjustments for mobile (screens smaller than 768px) */
+@media screen and (max-width: 767px) {
+  .row {
+      margin-left: -5px;
+      margin-right: -5px;
+      padding-top: 30px;
+  }
+}
+
+/* Further adjustments for very small mobile screens (less than 480px) */
+@media screen and (max-width: 479px) {
+  .row {
+      margin-left: 10px;
+      margin-right: 40px;
+      padding-top: 15px;
+      animation: textDrop 1.5s ease-out forwards; /* Faster animation for small screens */
+      text-align: left;
+      padding-right: 10px;
+      padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row p,
+  .row h2,
+  .row h3 {
+      text-align: left;
+  }
+}
+
+
+
+
 
 
 

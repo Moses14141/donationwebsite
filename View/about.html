@@ -16,12 +16,16 @@
     <header id="fh5co-header-section" class="sticky-banner">
         <div class="container">
             <div class="nav-header">
-                <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+                <button class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
+                    <i class="fa fa-bars"></i>
+                  </button>
+                  
                 
-                <a href="index.html">
+                <a href="#">
                     <img src="../images/logos1.png" alt="Your Logo" style="max-width: 110px; margin-top: 0%;">
                     <span style="font-size: 18px; font-weight: bold; margin-left: 10px;">Wokovuway Org</span>
-                </a>                <!-- START #fh5co-menu-wrap -->
+                </a>
+                                    <!-- START #fh5co-menu-wrap -->
                 <nav id="fh5co-menu-wrap" role="navigation">
                     <ul class="sf-menu" id="fh5co-primary-menu">
                         <li class="active">
@@ -29,7 +33,7 @@
                         </li>
                         <li>
                             <a href="../View/donate.html" class="fh5co-sub-ddown">Donate</a>
-                            
+                             
                         </li>
                         <li>
                             <a href="../View/about.html" class="fh5co-sub-ddown">About us</a>
@@ -40,11 +44,17 @@
                              
                         </li>
                         <li><a href="../View/contact.html">Contact</a></li>
+                        <li class="mobile-donate">
+                       <a href="../View/donate.html" class="donate-button">💖 Donate Now</a>
+                        </li>
+
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+    
+    
 
             <!-- About Us Section -->
             <section id="about-us" class="container">
@@ -170,7 +180,19 @@
 		
 		
 		
-		
+			
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+		  const toggleButton = document.querySelector(".js-fh5co-nav-toggle");
+		  const menu = document.getElementById("fh5co-menu-wrap");
+	  
+		  if (toggleButton && menu) {
+			toggleButton.addEventListener("click", function () {
+			  menu.classList.toggle("active"); // Toggles a class to show/hide menu
+			});
+		  }
+		});
+	  </script>
 		
 		
 
