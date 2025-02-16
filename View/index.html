@@ -1,389 +1,89 @@
 <!DOCTYPE html>
-<html class="no-js"> 
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Wokovuway Org.</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Wokovuway Humanitarian Organization" />
-	<meta name="keywords" content="Wokovuway, free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="Wokovuway" />
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.3.1/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.3.1/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/11.3.1/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/11.3.1/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/11.3.1/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/11.3.1/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/11.3.1/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/11.3.1/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/11.3.1/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/11.3.1/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-
-	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="../css/animate.css">
-	
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../css/bootstrap.css">
-	<!-- Superfish -->
-	<link rel="stylesheet" href="../css/superfish.css">
-
-	<link rel="stylesheet" href="../css/style.css">
-
-
-
-	
-
-	</head>
-	<body>
-		<div id="fh5co-wrapper">
-		<div id="fh5co-page">
-		
-		<header id="fh5co-header-section" class="sticky-banner">
-			<div class="container">
-				<div class="nav-header">
-					<button class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
-						<i class="fa fa-bars"></i>
-					  </button>
-					  
-					
-					<a href="#">
-						<img src="../images/logos1.png" alt="Your Logo" style="max-width: 110px; margin-top: 0%;">
-						<span style="font-size: 18px; font-weight: bold; margin-left: 10px;">Wokovuway Org</span>
-					</a>
-										<!-- START #fh5co-menu-wrap -->
-					<nav id="fh5co-menu-wrap" role="navigation">
-						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class="active">
-								<a href="../View/index.html">Home</a>
-							</li>
-							<li>
-								<a href="../View/donate.html" class="fh5co-sub-ddown">Donate</a>
-						 		
-							</li>
-							<li>
-								<a href="../View/about.html" class="fh5co-sub-ddown">About us</a>
-								
-							</li>
-							<li>
-								<a href="../View/success.html" class="fh5co-sub-ddown">Success stories</a>
-								 
-							</li>
-							<li><a href="../View/contact.html">Contact</a></li>
-							<li class="mobile-donate">
-                           <a href="../View/donate.html" class="donate-button">💖 Donate Now</a>
-                            </li>
-
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		
-
-		<div class="fh5co-hero">
-			<div class="fh5co-overlay"></div>
-			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(../images/hero.jpg);">
-				<div class="desc animate-box">
-					<h2><strong>​Empowering Those in Need and Conflict-Affected Communities​
-					</strong> </h2>
-					<span class="fh5co-site-name">BUILDING FOR THEIR FUTURE</span>
-					<span><a class="btn btn-primary btn-lg" href="../View/donate.html">Donate Now</a></span>
-				</div>
-			</div>
-
-		</div>
-		<!-- end:header-top -->
-		<div id="fh5co-features">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-
-						<div class="feature-left">
-							<span class="icon">
-								<i class="material-icons">
-									
-									</span></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Become a volunteer</h3>
-								<p>Become a valued member of our dedicated volunteer team 
-									and make a real difference in the lives of underprivileged children in Goma. Your time and skills
-									
-								are essential in supporting their personal growth. Join Wokovuway Humanitarian Organization and help us drive positive change.</p>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="col-md-4">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-happy"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Happy Giving</h3>
-								<p>Experience the joy of giving by supporting Wokovuway Humanitarian Organization with any non-financial contribution you may have. Every contribution, no matter the size, brings happiness and hope to those in need.</p>
-								
-							</div>
-						</div>
-
-					</div>
-					<div class="col-md-4">
-						<div class="feature-left">
-							<span class="icon">
-								<i class="icon-wallet"></i>
-							</span>
-							<div class="feature-copy">
-								<h3>Donation</h3>
-								<p>Make a lasting impact through your financial support. 
-									Your donations enable us to continue our mission of improving 
-									the personal development of underprivileged children in Goma. Whether it's a one-time
-									 donation or a recurring contribution, together, we can create a brighter future for these children.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="fh5co-feature-product" class="fh5co-section-gray">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center heading-section">
-						<h3>Shaping Futures, Overcoming Challenges.</h3>
-						<p><p>Your generosity empowers children facing severe challenges, investing in their future through education and creative opportunities, helping them overcome adversity and build a brighter tomorrow.</p>
-					</p>
-					</div>
-				</div>
-
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-12 text-center animate-box">
-						<p><img src="../images/kid_Sm.jpg" class="img-responsive"></p>
-					</div>
-					
-					
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="feature-text">
-							<h3>Informal Education</h3>
-							<p>Empower young minds through our informal education initiatives. 
-								We believe in providing accessible and engaging learning experiences 
-								for underprivileged children in Congo. Explore how we foster a love for
-								 learning and equip these children with essential skills for a brighter future.</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="feature-text">
-							<h3>Creativity</h3>
-							<p>Unlocking the creative potential of every child is at the 
-								heart of our mission. Discover the stories of resilience and 
-								innovation as we elevate talents and creativity among underprivileged 
-								youth in Congo. Join us in cultivating a culture of self-expression and imagination.</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="feature-text">
-							<h3>Charity</h3>
-							<p>Compassion in action: our charity programs make a direct impact on the lives 
-								of those in need. Learn about the various ways we extend a helping hand to 
-								vu lnerable communities in Congo. Your support enables us to provide essential 
-								resources and assistance to those who need it most.</p>
-						</div>
-					</div>
-				</div>
-
-				
-			</div>
-		</div>
-
-		
-		<div id="fh5co-portfolio">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
-						<h3>Our Gallery</h3>
-						<p>Where Compassion Inspires Change: Join Us in Uplifting Congos’s Resilient Community.</p>
-					</div>
-				</div>
-
-				
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-12">
-						<ul id="fh5co-portfolio-list">
-
-							<li class="two-third animate-box" data-animate-effect="fadeIn" style="background-image: url(../images/roof.JPG); ">
-								<a href="donate.html" class="color-3">
-									<div class="case-studies-summary">
-										<span>Tarpaulin shelters protect and save lives.</span>
-										<h2>Donate today</h2>
-									</div>
-								</a>
-							</li>
-						
-							<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(../images/kid_goma.JPG);">
-								<a href="donate.html" class="color-4">
-									<div class="case-studies-summary">
-										<span>$1 can feed a family for a day.</span>
-										<h2>Every Donation Shows You Care</h2>
-									</div>
-								</a>
-							</li>
-
-							<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(../images/camp_visit.JPG); "> 
-								<a href="donate.html" class="color-5">
-									<div class="case-studies-summary">
-										<span>Give Love</span>
-										<h2>Donation is caring</h2>
-									</div>
-								</a>
-							</li>
-							<li class="two-third animate-box" data-animate-effect="fadeIn" style="background-image: url(../images/camp_j.JPG); ">
-								<a href="donate.html" class="color-6">
-									<div class="case-studies-summary">
-										<span>Give Love</span>
-										<h2>Donation is caring</h2>
-									</div>
-								</a>
-							</li>
-						</ul>		
-					</div>
-				</div>
-
-				
-
-				
-			</div>
-		</div>
-		
-
-		
-		<div id="fh5co-content-section" class="fh5co-section-gray">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-						<h3>Support us</h3>
-						<p>Your kindness empowers us to continue our mission, ensuring that families have access to food, shelter, and health, while creating an environment where every child has the opportunity to learn, grow, and thrive.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="container">
-				
-					<video id="assistancemessage" src="../video/Camp_displace_fam.mp4" controls="player" width="1100"></video>
-					
-			
-		</div>
-		</div>
-
-		<!-- END What we do -->
-		<footer>
-			<div id="footer">
-				<div class="container">
-					<div class="footer-row">
-						<!-- Column 1: About -->
-						<div class="footer-column">
-							<h4>About Us</h4>
-							<p>Wokovu Way is dedicated to empowering communities through innovation and support.</p>
-							<a href="about.html" class="read-more">Read More</a>
-						</div>
-						
-		
-						<!-- Column 2: Contact Info -->
-						<div class="footer-column">
-							<h4>Contact</h4>
-							<p><strong>Address:</strong> Ndosho, Rulenga Avenue, N°003</p>
-							<p><strong>Phone:</strong> +243 123 456 789</p>
-							<p><strong>Email:</strong> <a href="mailto:info@wokovuway.com">info@wokovuway.com</a></p>
-						</div>
-		
-						<!-- Column 3: Quick Links -->
-						<div class="footer-column">
-							<h4>Quick Links</h4>
-							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Services</a></li>
-								<li><a href="#">Contact</a></li>
-							</ul>
-						</div>
-		
-						<!-- Column 4: Social Media -->
-						<div class="footer-column">
-							<h4>Follow Us</h4>
-							<div class="social-icons">
-							<a href="https://x.com/wokovuwayngo?s=21" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-							<a href="https://www.facebook.com/wokovuway/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-							<a href="https://www.instagram.com/wokovuway?igsh=MmU1aWJ6Z3d3dXc3" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-							</div>
-
-							
-							
-						</div>
-						<div class="partners">
-							<h4> Our Partners </h4>
-							<a href="https://www.partner1.com" target="_blank">
-								<img src="../images/men_en.png" alt="Partner 1" />
-							</a>
-							<a href="https://cd.usembassy.gov/kinshasa/" target="_blank">
-								<img src="../images/uskin.jpg" alt="Partner 2" />
-							</a>
-							<a href="https://www.medecinssansfrontieres.ca/" target="_blank">
-								<img src="../images/med.webp" alt="Partner 3" />
-							</a>
-							<a href="https://menengage.org/" target="_blank">
-								<img src="../images/unfpa.png" alt="Partner 4" />
-							</a>
-						</div>
-					</div>
-				</div>
-		
-				<!-- Bottom Footer (All Rights Reserved at the Bottom) -->
-				<div class="footer-bottom">
-					<p>© 2025 Wokovu Way. All Rights Reserved.</p>
-					<p>Designed by <a href="http://freehtml5.co/" target="_blank">Goshen WebX</a></p>
-				</div>
-			</div>
-		</footer>
-		
-		
-		
-		
-		
-	
-
-	</div>
-	<!-- END fh5co-page -->
-
-	</div>
-	<!-- END fh5co-wrapper -->
-
-
-	
-	
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-		  const toggleButton = document.querySelector(".js-fh5co-nav-toggle");
-		  const menu = document.getElementById("fh5co-menu-wrap");
-	  
-		  if (toggleButton && menu) {
-			toggleButton.addEventListener("click", function () {
-			  menu.classList.toggle("active"); // Toggles a class to show/hide menu
-			});
-		  }
-		});
-	  </script>
-	  
-	</body>
-	
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>
