@@ -1,0 +1,487 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+a:hover, a:visited, a:active {
+    text-decoration: none !important;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header */
+#wokovuway-header {
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 80px; /* Larger logo */
+    transition: transform 0.3s ease;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    color: #003d82;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu ul li {
+    margin-left: 30px;
+}
+
+.nav-menu a {
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #003d82;
+}
+
+/* Hero Section */
+#wokovuway-hero {
+    position: relative;
+    height: 65vh;
+    overflow: hidden;
+}
+
+.slider {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate(-50%, -40%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.slide-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.slide-content p {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #f39c12;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #e67e22;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+    background: #f39c12;
+}
+
+/* Features Section */
+#wokovuway-features {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.features-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.feature-item {
+    width: 30%;
+    min-width: 250px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: #f39c12;
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Mission Section */
+#wokovuway-mission {
+    padding: 60px 20px;
+    background: #f7f9fa;
+}
+
+.mission-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.mission-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Section */
+#wokovuway-gallery {
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.gallery-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.gallery-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.gallery-slider {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    gap: 20px;
+}
+
+.gallery-slide {
+    min-width: 320px;
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.gallery-slide:hover {
+    transform: scale(1.03);
+}
+
+.gallery-prev, .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.gallery-prev { left: 20px; }
+.gallery-next { right: 20px; }
+
+.gallery-prev:hover, .gallery-next:hover {
+    background: #f39c12;
+}
+
+/* Support Section */
+#wokovuway-support {
+    padding: 60px 20px;
+    background: #f7f9fa;
+    text-align: center;
+}
+
+.support-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.support-container video {
+    max-width: 100%;
+    border-radius: 15px;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Impact Section */
+#wokovuway-impact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.impact-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.impact-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.impact-item {
+    width: 30%;
+    min-width: 250px;
+    padding: 30px;
+    background: linear-gradient(135deg, #003d82, #002b5c);
+    color: #fff;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.impact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.impact-item h3 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #003d82, #002b5c);
+    color: #fff;
+    padding: 60px 20px 20px;
+}
+
+.footer-row {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-column h4 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.footer-column a:hover {
+    color: #f39c12;
+}
+
+.social-icons a {
+    margin: 0 15px;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+}
+
+.partners img {
+    max-width: 50px;
+    margin: 15px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.partners img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Adjusted heading font for slides */
+    .slide-content h1 {
+        font-size: 2rem; /* Reduced from 2.5rem for better fit */
+        line-height: 1.2; /* Improved readability */
+        font-weight: 700; /* Consistent weight */
+    }
+
+    /* Adjusted paragraph font for slides */
+    .slide-content p {
+        font-size: 1rem; /* Slightly smaller than 1.1rem for balance */
+        line-height: 1.5; /* Better spacing */
+        font-weight: 400; /* Normal weight for readability */
+    }
+
+    .feature-item, .impact-item {
+        width: 100%;
+    }
+
+    .gallery-slide {
+        min-width: 280px;
+    }
+    
+    /* Adjusted logo text font */
+    .logo-text {
+        font-size: 1.5rem; /* More compact */
+    }
+
+    /* Optional: Adjust navigation menu item font */
+    .nav-menu ul li {
+        font-size: 1rem; /* Consistent with paragraph size */
+        line-height: 1.4; /* Spacing for touch targets */
+    }
+    /* Hero Section */
+#wokovuway-hero {
+    position: relative;
+    height: 40vh;
+    overflow: hidden;
+}
+}

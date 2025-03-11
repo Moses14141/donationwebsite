@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form - Wokovuway Organization</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="org-name">Wokovuway</h1>
+        <div class="header-image">
+            <img src="images/wokovu1.JPG" alt="Organization Image" />
+        </div>
+        <div class="donation-message">
+            <p>
+                Please write to us about how you would like to help by choosing your donation type. 
+                Our team will reach out to you as soon as possible. 
+                Thank you for your donation to <strong>Wokovuway Organization</strong>. 
+                We assure you that every contribution, whether in cash or kind, 
+                will be used to positively impact the lives we serve.
+            </p>
+            
+            <p>
+                <small>
+                    Your personal information will be kept secure and used solely for processing your donation 
+                    in accordance with our 
+                    <a href="#" style="text-decoration: underline;">Privacy Policy</a>.
+                </small>
+            </p>
+            
+        </div>
+
+        <form action="submit-donation.php" method="POST" id="donationForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="donation">Donation Type:</label>
+            <select id="donation" name="donation">
+                <option value="clothes">Clothes</option>
+                <option value="food">Food</option>
+                <option value="water">Water</option>
+                <option value="stationery">Stationery</option>
+            </select>
+
+            <label for="message">Additional Details:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Submit Donation</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            if (name === '' || email === '') {
+                alert('Please fill in all required fields!');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address!');
+                return;
+            }
+
+            // If validation passes, show success message
+            alert('Thank you for your donation! We will process your request shortly.');
+            this.reset();
+        });
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>
