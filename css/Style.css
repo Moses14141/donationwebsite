@@ -471,6 +471,8 @@ footer {
     margin: 15px;
     border-radius: 50%;
     transition: transform 0.3s ease;
+    margin-bottom: 5px;
+    
 }
 
 .partners img:hover {
