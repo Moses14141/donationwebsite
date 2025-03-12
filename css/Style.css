@@ -114,6 +114,132 @@ body {
     z-index: 1001; /* Ensure it’s above nav-menu */
 }
 
+
+
+
+/* Base Styles (English - lang="en") */
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f39c12;
+    flex-wrap: nowrap;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+.nav-menu ul li {
+    margin-left: 30px; /* Default spacing for English */
+}
+
+.nav-menu a {
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1rem; /* Default size for English */
+    padding: 8px 12px; /* Default padding for English */
+    transition: color 0.3s ease, background 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-menu a:hover {
+    color: #fff;
+    background: #f39c12;
+}
+
+.lang-toggle a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle a i {
+    margin-right: 5px;
+}
+
+.lang-toggle a:hover {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+}
+
+/* French-Specific Styles (lang="fr") */
+html[lang="fr"] .nav-menu ul li {
+    margin-left: 20px; /* Reduced spacing for French */
+}
+
+html[lang="fr"] .nav-menu a {
+    font-size: 1rem; /* Smaller font for French */
+    padding: 6px 10px; /* Reduced padding for French */
+}
+
+html[lang="fr"] .lang-toggle a {
+    padding: 6px 10px; /* Match French nav links */
+    font-size: 1rem;
+}
+
+/* Responsive Design (applies to both languages) */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu ul li {
+        margin-left: 0; /* Reset for vertical layout */
+    }
+
+    .lang-toggle {
+        margin-top: 10px;
+    }
+
+    /* Ensure French adjustments don’t override mobile layout unnecessarily */
+    html[lang="fr"] .nav-menu ul li {
+        margin-left: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Hero Section */
 #wokovuway-hero {
     position: relative;
@@ -592,4 +718,57 @@ body {
     .footer-bottom {
         font-size: 0.8rem; /* Smaller font size for the footer text */
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Added to css/style.css */
+
+/* Language Toggle */
+.lang-toggle a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle a i {
+    margin-right: 5px;
+}
+
+.lang-toggle a:hover {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .lang-toggle {
+        margin-top: 10px; /* Space it out in mobile menu */
+    }
+}
+
+
+#wokovuway-wrapper {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out; /* Matches JS timing */
+}
+
+#wokovuway-wrapper.fade-out-full {
+    opacity: 0; /* Full fade-out instead of 0.2 */
 }

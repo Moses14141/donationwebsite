@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Existing Hero Slider code (unchanged)
+    // Existing Hero Slider code
     const slides = document.querySelectorAll("#wokovuway-hero .slide");
     const dotsContainer = document.querySelector("#wokovuway-hero .slider-dots");
     let currentSlide = 0;
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateSlides();
     }, 5000);
 
-    // Existing Gallery Slider code (unchanged)
+    // Existing Gallery Slider code
     const gallerySlider = document.querySelector(".gallery-slider");
     const prevBtn = document.querySelector(".gallery-prev");
     const nextBtn = document.querySelector(".gallery-next");
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Existing Hamburger Menu code (unchanged)
+    // Existing Hamburger Menu code
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-menu");
 
@@ -65,12 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Subtle Blink Transition for Navigation
-    const navLinks = document.querySelectorAll(".nav-menu a");
+    // Navigation with Blink Transition
+    const navLinks = document.querySelectorAll(".nav-menu a:not(#translate-link)");
     const wrapper = document.querySelector("#wokovuway-wrapper");
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-    // Set active link and gentle fade-in
     navLinks.forEach(link => {
         const href = link.getAttribute("href");
         if (href === currentPage) {
@@ -80,8 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Soft fade-in on load
-    wrapper.style.opacity = "0.2";
+    // Smoother fade-in on page load
+    wrapper.style.opacity = "0";
+    wrapper.style.transition = "opacity 0.4s ease-in-out"; // Increased duration for smoothness
     requestAnimationFrame(() => {
         wrapper.style.opacity = "1";
     });
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const href = this.getAttribute("href");
             if (href && href !== currentPage && !href.startsWith("#")) {
                 e.preventDefault();
-                wrapper.classList.add("fade-out");
+                wrapper.classList.add("fade-out-full"); // New class for full fade
 
                 navLinks.forEach(link => link.classList.remove("active"));
                 this.classList.add("active");
@@ -102,26 +102,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     hamburger.querySelector("i").classList.add("fa-bars");
                 }
 
-                // Navigate after subtle fade-out
                 setTimeout(() => {
                     window.location.href = href;
-                }, 200); // Matches CSS duration
+                }, 400); // Matches new CSS duration
             }
         });
     });
 
-    // Subtle Blink for Internal Links
     const internalLinks = document.querySelectorAll('a:not(.nav-menu a)');
     internalLinks.forEach(link => {
         link.addEventListener("click", function (e) {
             const href = this.getAttribute("href");
             if (href && !href.startsWith("#") && href !== currentPage) {
                 e.preventDefault();
-                wrapper.classList.add("fade-out");
+                wrapper.classList.add("fade-out-full");
 
                 setTimeout(() => {
                     window.location.href = href;
-                }, 200);
+                }, 400);
 
                 navLinks.forEach(navLink => {
                     const navHref = navLink.getAttribute("href");
@@ -134,9 +132,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Existing Video Autoplay code (unchanged)
+    // Translate Link Functionality (Smoother Transition)
+    const translateLink = document.querySelector("#translate-link");
+    if (translateLink) {
+        translateLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            const href = currentPage === 'index.html' ? 'index_french.html' : 'index.html'; // Toggle between English and French
+            wrapper.classList.add("fade-out-full"); // Full fade-out for language switch
+
+            if (navMenu.classList.contains("active")) {
+                navMenu.classList.remove("active");
+                hamburger.querySelector("i").classList.remove("fa-times");
+                hamburger.querySelector("i").classList.add("fa-bars");
+            }
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400); // Matches new CSS duration
+        });
+    }
+
+    // Existing Video Autoplay code
     const video = document.querySelector("#wokovuway-support video");
     if (video) {
         video.play().catch(error => console.error("Autoplay failed:", error));
+    } else {
+        console.warn("Support video not found");
     }
 });

@@ -1,118 +1,139 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Hamburger Menu and Navigation with Blink Transition
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    const wrapper = document.querySelector('#wokovuway-wrapper');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+document.addEventListener("DOMContentLoaded", () => {
+    // Hero Slider
+    const slides = document.querySelectorAll("#donation-hero .slide");
+    const dotsContainer = document.querySelector("#donation-hero .slider-dots");
+    let currentSlide = 0;
 
-    // Set active link and fade in on load
+    if (!dotsContainer) {
+        console.error("Slider dots container not found");
+    } else {
+        slides.forEach((_, i) => {
+            const dot = document.createElement("span");
+            dot.classList.add("dot");
+            dot.dataset.slide = i;
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+                currentSlide = i;
+                updateSlides();
+            });
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    function updateSlides() {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === currentSlide);
+        });
+        document.querySelectorAll("#donation-hero .dot").forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentSlide);
+        });
+    }
+
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlides();
+    }, 5000);
+
+    // Hamburger Menu
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    if (!hamburger || !navMenu) {
+        console.error("Hamburger or nav-menu not found:", { hamburger, navMenu });
+    } else {
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            const isActive = navMenu.classList.contains("active");
+            hamburger.querySelector("i").classList.toggle("fa-bars", !isActive);
+            hamburger.querySelector("i").classList.toggle("fa-times", isActive);
+        });
+    }
+
+    // Navigation with Smooth Transition
+    const navLinks = document.querySelectorAll(".nav-menu a:not(#translate-link)");
+    const wrapper = document.querySelector("#wokovuway-wrapper");
+    const currentPage = window.location.pathname.split('/').pop() || 'donate.html';
+
     navLinks.forEach(link => {
-        const href = link.getAttribute('href');
+        const href = link.getAttribute("href");
         if (href === currentPage) {
-            link.classList.add('active');
+            link.classList.add("active");
         } else {
-            link.classList.remove('active');
+            link.classList.remove("active");
         }
     });
 
-    // Soft fade-in on page load
-    if (wrapper) {
-        wrapper.style.opacity = '0.2';
-        requestAnimationFrame(() => {
-            wrapper.style.opacity = '1';
-        });
-    }
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const isActive = navMenu.classList.contains('active');
-            hamburger.querySelector('i').classList.toggle('fa-bars', !isActive);
-            hamburger.querySelector('i').classList.toggle('fa-times', isActive);
-        });
-    } else {
-        console.error('Hamburger or nav-menu not found in the DOM.');
-    }
+    // Smoother fade-in on page load
+    wrapper.style.opacity = "0";
+    wrapper.style.transition = "opacity 0.4s ease-in-out";
+    requestAnimationFrame(() => {
+        wrapper.style.opacity = "1";
+    });
 
     navLinks.forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href && href !== currentPage && !href.startsWith('#')) {
+        anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (href && href !== currentPage && !href.startsWith("#")) {
                 e.preventDefault();
-                wrapper.classList.add('fade-out');
+                wrapper.classList.add("fade-out-full");
 
-                navLinks.forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
+                navLinks.forEach(link => link.classList.remove("active"));
+                this.classList.add("active");
 
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    hamburger.querySelector('i').classList.remove('fa-times');
-                    hamburger.querySelector('i').classList.add('fa-bars');
+                if (navMenu.classList.contains("active")) {
+                    navMenu.classList.remove("active");
+                    hamburger.querySelector("i").classList.remove("fa-times");
+                    hamburger.querySelector("i").classList.add("fa-bars");
                 }
 
-                // Navigate after fade-out
                 setTimeout(() => {
                     window.location.href = href;
-                }, 200); // Matches CSS duration
+                }, 400);
             }
         });
     });
 
-    // Subtle Blink for Internal Links (e.g., "Donate Now", "Read More")
+    // Internal Links (e.g., GoFundMe, form)
     const internalLinks = document.querySelectorAll('a:not(.nav-menu a)');
     internalLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href && !href.startsWith('#') && href !== currentPage && !href.includes('gofundme.com')) {
+        link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (href && !href.startsWith("#") && href !== currentPage && !href.startsWith("mailto:")) {
                 e.preventDefault();
-                wrapper.classList.add('fade-out');
+                wrapper.classList.add("fade-out-full");
 
                 setTimeout(() => {
                     window.location.href = href;
-                }, 200);
+                }, 400);
 
                 navLinks.forEach(navLink => {
-                    const navHref = navLink.getAttribute('href');
+                    const navHref = navLink.getAttribute("href");
                     if (navHref === href) {
-                        navLinks.forEach(item => item.classList.remove('active'));
-                        navLink.classList.add('active');
+                        navLinks.forEach(item => item.classList.remove("active"));
+                        navLink.classList.add("active");
                     }
                 });
             }
         });
     });
 
-    // Hero Slider
-    const slides = document.querySelectorAll('#donation-hero .slide');
-    const dotsContainer = document.querySelector('#donation-hero .slider-dots');
-    let currentSlide = 0;
+    // Translate Link Functionality (Smooth Transition)
+    const translateLink = document.querySelector("#translate-link");
+    if (translateLink) {
+        translateLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            const href = currentPage === 'donate.html' ? 'donate_french.html' : 'donate.html'; // Toggle between English and French
+            wrapper.classList.add("fade-out-full");
 
-    if (slides.length && dotsContainer) {
-        slides.forEach((_, i) => {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.dataset.slide = i;
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                currentSlide = i;
-                updateSlides();
-            });
-            dotsContainer.appendChild(dot);
+            if (navMenu.classList.contains("active")) {
+                navMenu.classList.remove("active");
+                hamburger.querySelector("i").classList.remove("fa-times");
+                hamburger.querySelector("i").classList.add("fa-bars");
+            }
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
         });
-
-        function updateSlides() {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === currentSlide);
-            });
-            document.querySelectorAll('#donation-hero .dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlides();
-        }, 5000);
     }
 });
