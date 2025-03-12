@@ -537,3 +537,57 @@ footer {
         height: 50vh; /* Reduced for mobile */
     }
 }
+
+
+
+
+/* Page Transition Styles */
+#wokovuway-wrapper {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out; /* Slightly slower, softer blink */
+}
+
+#wokovuway-wrapper.fade-out {
+    opacity: 0.2; /* Not fully gone, less flashy */
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .footer-row {
+        flex-direction: column; /* Stack columns vertically on mobile */
+        align-items: center; /* Center the content */
+        gap: 30px;
+    }
+
+    .footer-column {
+        text-align: center; /* Ensure text is centered in each column */
+    }
+
+    .footer-column h4 {
+        font-size: 1.2rem; /* Slightly smaller heading size for mobile */
+    }
+
+    .social-icons a {
+        font-size: 1.2rem; /* Adjust icon size */
+        margin: 0 10px; /* Smaller margin for icons */
+    }
+
+    .partners img {
+        max-width: 40px; /* Slightly smaller images for mobile */
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem; /* Smaller font size for the footer text */
+    }
+}

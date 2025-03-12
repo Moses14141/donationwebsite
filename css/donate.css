@@ -445,3 +445,19 @@ footer {
         height: 50vh; /* Reduced for mobile */
     }
 }
+
+
+/* Page Transition Styles */
+#wokovuway-wrapper {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out; /* Soft, blink-like fade */
+}
+
+#wokovuway-wrapper.fade-out {
+    opacity: 0.2; /* Subtle dim, not fully gone */
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
