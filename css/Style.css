@@ -303,7 +303,7 @@ html[lang="fr"] .logo-text {
 .btn {
     display: inline-block;
     padding: 14px 30px;
-    background: #f39c12;
+    background: #003d82;
     color: #fff;
     font-weight: 600;
     border-radius: 25px;
@@ -333,7 +333,8 @@ html[lang="fr"] .logo-text {
 }
 
 .btn:hover {
-    background: #e67e22;
+  
+    background: #002b5c;
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
@@ -406,6 +407,7 @@ html[lang="fr"] .logo-text {
 #wokovuway-mission {
     padding: 60px 20px;
     background: #f7f9fa;
+    background-color: #f39c12;
 }
 
 .section-gray {
@@ -502,6 +504,7 @@ html[lang="fr"] .logo-text {
     padding: 60px 20px;
     background: #f7f9fa;
     text-align: center;
+    background-color: aliceblue;
 }
 
 .support-container h2 {
@@ -521,6 +524,8 @@ html[lang="fr"] .logo-text {
 #wokovuway-impact {
     padding: 60px 20px;
     text-align: center;
+    /*background-color: beige; */
+    background-color: #f39c12;
 }
 
 .impact-container h2 {
