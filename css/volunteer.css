@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Réinitialisation et styles de base */
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
+/* En-tête */
 #wokovuway-header {
     background-color: #003d82;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -121,7 +121,7 @@ body {
     z-index: 1001;
 }
 
-/* Main Content */
+/* Contenu principal */
 .container {
     max-width: 1280px;
     margin: 60px auto;
@@ -135,8 +135,8 @@ body {
     margin-bottom: 40px;
 }
 
-/* Policy Sections */
-.policy-section {
+/* Sections de bénévolat */
+.volunteer-section {
     text-align: left;
     margin-bottom: 40px;
     padding: 20px;
@@ -149,70 +149,163 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.policy-section h2 {
+.volunteer-section h2 {
     font-size: 1.8rem;
     color: #003d82;
     margin-bottom: 15px;
 }
 
-.policy-section p {
+.volunteer-section p {
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 15px;
 }
 
-.policy-section ul {
+.volunteer-section a {
+    color: #003d82;
+    transition: color 0.3s ease;
+}
+
+.volunteer-section a:hover {
+    color: #f39c12;
+}
+
+/* Liste des avantages */
+.benefits-list {
     list-style: none;
     padding-left: 20px;
 }
 
-.policy-section ul li {
+.benefits-list li {
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 10px;
     position: relative;
 }
 
-.policy-section ul li:before {
-    content: "•";
+.benefits-list li:before {
+    content: "✓";
     color: #f39c12;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     position: absolute;
     left: -20px;
-    top: 0;
+    top: 2px;
 }
 
-.policy-section ul li strong {
+.benefits-list li strong {
     color: #333;
 }
 
-.policy-section a {
-    color: #003d82;
-    transition: color 0.3s ease;
+/* Opportunités de bénévolat */
+.opportunity {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-left: 4px solid #f39c12;
 }
 
-.policy-section a:hover {
-    color: #f39c12;
+.opportunity h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-/* Footer */
+.opportunity p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.opportunity p strong {
+    color: #333;
+}
+
+/* Étapes pour postuler */
+.apply-steps {
+    list-style: decimal;
+    padding-left: 40px;
+}
+
+.apply-steps li {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.apply-steps li strong {
+    color: #333;
+}
+
+/* Formulaire de bénévolat */
+#volunteer-form {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #f39c12;
+}
+
+.submit-btn {
+    background-color: #f39c12;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e67e22;
+}
+
+.form-note {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Pied de page */
 footer {
     background: linear-gradient(135deg, #003d82, #002b5c);
     color: #fff;
     padding: 60px 20px 20px;
-
 }
-
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
 
 .footer-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     justify-content: space-between;
     margin-bottom: 25px;
     text-align: left;
@@ -232,11 +325,9 @@ footer {
     color: chocolate;
 }
 
-.footer-column li  {
+.footer-column li {
     color: #f39c12;
 }
-
-
 
 .social-icons a {
     margin: 0 15px;
@@ -279,11 +370,11 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* Conception responsive */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        z-index: 1001; /* Above nav-menu */
+        z-index: 1001;
     }
 
     .nav-menu {
@@ -307,29 +398,8 @@ footer {
         gap: 10px;
     }
 
-    .slide-content h1 {
-        font-size: 1.8rem; /* Adjusted for mobile */
-    }
-
-    .slide-content p {
-        font-size: 1rem; /* Adjusted for mobile */
-    }
-
-    .feature-item, .impact-item {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .gallery-slide {
-        min-width: 280px;
-    }
-
     .logo-text {
         font-size: 1.5rem;
-    }
-
-    #wokovuway-hero {
-        height: 50vh; /* Reduced for mobile */
     }
 }
 
@@ -337,9 +407,7 @@ footer {
     color: #e67e22;
 }
 
-
-
-/* Page Transition Styles */
+/* Styles de transition de page */
 #wokovuway-wrapper {
     opacity: 1;
     transition: opacity 0.4s ease-in-out;

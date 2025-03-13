@@ -135,8 +135,8 @@ body {
     margin-bottom: 40px;
 }
 
-/* Policy Sections */
-.policy-section {
+/* Newsletter Sections */
+.newsletter-section {
     text-align: left;
     margin-bottom: 40px;
     padding: 20px;
@@ -149,31 +149,121 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.policy-section h2 {
+.newsletter-section h2 {
     font-size: 1.8rem;
     color: #003d82;
     margin-bottom: 15px;
 }
 
-.policy-section p {
+.newsletter-section p {
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 15px;
 }
 
-.policy-section ul {
+.newsletter-section a {
+    color: #003d82;
+    transition: color 0.3s ease;
+}
+
+.newsletter-section a:hover {
+    color: #f39c12;
+}
+
+/* Subscription Form */
+#newsletter-form {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #f39c12;
+}
+
+.submit-btn {
+    background-color: #f39c12;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e67e22;
+}
+
+.form-note {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Benefits List */
+.benefits-list {
     list-style: none;
     padding-left: 20px;
 }
 
-.policy-section ul li {
+.benefits-list li {
     font-size: 1.1rem;
     color: #666;
     margin-bottom: 10px;
     position: relative;
 }
 
-.policy-section ul li:before {
+.benefits-list li:before {
+    content: "✓";
+    color: #f39c12;
+    font-size: 1.2rem;
+    position: absolute;
+    left: -20px;
+    top: 2px;
+}
+
+.benefits-list li strong {
+    color: #333;
+}
+
+/* Past Newsletters */
+.past-newsletters {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.past-newsletters li {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.past-newsletters li:before {
     content: "•";
     color: #f39c12;
     font-size: 1.5rem;
@@ -182,37 +272,17 @@ body {
     top: 0;
 }
 
-.policy-section ul li strong {
-    color: #333;
-}
-
-.policy-section a {
-    color: #003d82;
-    transition: color 0.3s ease;
-}
-
-.policy-section a:hover {
-    color: #f39c12;
-}
-
 /* Footer */
 footer {
     background: linear-gradient(135deg, #003d82, #002b5c);
     color: #fff;
     padding: 60px 20px 20px;
-
 }
-
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
 
 .footer-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 40px;
     justify-content: space-between;
     margin-bottom: 25px;
     text-align: left;
@@ -232,11 +302,9 @@ footer {
     color: chocolate;
 }
 
-.footer-column li  {
+.footer-column li {
     color: #f39c12;
 }
-
-
 
 .social-icons a {
     margin: 0 15px;
@@ -283,7 +351,7 @@ footer {
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        z-index: 1001; /* Above nav-menu */
+        z-index: 1001;
     }
 
     .nav-menu {
@@ -307,37 +375,14 @@ footer {
         gap: 10px;
     }
 
-    .slide-content h1 {
-        font-size: 1.8rem; /* Adjusted for mobile */
-    }
-
-    .slide-content p {
-        font-size: 1rem; /* Adjusted for mobile */
-    }
-
-    .feature-item, .impact-item {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .gallery-slide {
-        min-width: 280px;
-    }
-
     .logo-text {
         font-size: 1.5rem;
-    }
-
-    #wokovuway-hero {
-        height: 50vh; /* Reduced for mobile */
     }
 }
 
 .read-more {
     color: #e67e22;
 }
-
-
 
 /* Page Transition Styles */
 #wokovuway-wrapper {

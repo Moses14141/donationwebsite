@@ -192,7 +192,7 @@ html[lang="fr"] .lang-toggle a {
 }
 
 html[lang="fr"] .logo-text {
-    font-size: 2px;
+    font-size: 20px;
 }
 
 /* Responsive Design (applies to both languages) */
@@ -577,9 +577,11 @@ footer {
 .footer-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 30px;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    
+    
 }
 
 .footer-column {
@@ -609,14 +611,27 @@ footer {
     color: #e67e22;
 }
 
-.partners img {
-    max-width: 50px;
-    margin: 15px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-    margin-bottom: 5px;
-    
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 160px; /* Adjust width to fit the 4 images */
 }
+
+.partners img {
+  max-width: 50px;
+  margin: 15px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+/* Make sure images are paired in two rows */
+.partners img:nth-child(odd) {
+  margin-right: 10px; /* Adds spacing between pairs */
+}
+
 
 .partners img:hover {
     transform: scale(1.1);
