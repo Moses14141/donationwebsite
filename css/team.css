@@ -20,22 +20,7 @@ body {
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
-}
-
-/* Page Transition Styles */
-#wokovuway-wrapper {
-    opacity: 1;
-    transition: opacity 0.2s ease-in-out; /* Soft, blink-like fade */
-
-}
-
-#wokovuway-wrapper.fade-out {
-    opacity: 0.2; /* Subtle dim, not fully gone */
-}
-
-body {
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* Header */
@@ -56,6 +41,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #f39c12;
+    flex-wrap: nowrap;
 }
 
 .logo-img {
@@ -67,7 +53,6 @@ body {
     border: 4px solid #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 2px;
-   
 }
 
 .logo-text {
@@ -84,12 +69,19 @@ body {
 .nav-menu ul {
     display: flex;
     list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
 }
 
 .nav-menu ul li {
-    margin-left: 30px;
+    margin-left: 30px; /* Default spacing for English */
 }
 
+/* Existing styles unchanged until navigation section */
+
+/* Navigation Links */
 .nav-menu a {
     color: #333;
     font-weight: 600;
@@ -97,6 +89,7 @@ body {
     padding: 8px 12px;
     transition: all 0.3s ease;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-menu a::after {
@@ -117,18 +110,83 @@ body {
     transform-origin: bottom left;
 }
 
-.nav-menu a:hover, .nav-menu a.active {
+.nav-menu a:hover {
     color: #fff;
     background: #f39c12;
     border-radius: 5px;
 }
+
+.nav-menu a.active {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+    z-index: 1; /* Ensure active is above hover */
+}
+
+/* Reset hover during fade-out */
+#wokovuway-wrapper.fade-out-full .nav-menu a:hover {
+    color: #333;
+    background: none;
+}
+
+/* Ensure non-active links don’t retain hover styling */
+.nav-menu a:not(.active) {
+    background: none;
+}
+
+/* French-Specific Styles */
+html[lang="fr"] .nav-menu ul li {
+    margin-left: 20px;
+}
+
+html[lang="fr"] .nav-menu a {
+    font-size: 1rem;
+    padding: 6px 10px;
+}
+
+/* Rest of your CSS (hamburger, team section, footer) remains unchanged */
 
 .hamburger {
     display: none;
     font-size: 1.8rem;
     cursor: pointer;
     color: #003d82;
-    z-index: 1001;
+    z-index: 1001; /* Above nav-menu */
+}
+
+.lang-toggle a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle a i {
+    margin-right: 5px;
+}
+
+.lang-toggle a:hover {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+}
+
+/* French-Specific Styles (lang Produk="fr") */
+html[lang="fr"] .nav-menu ul li {
+    margin-left: 20px; /* Reduced spacing for French */
+}
+
+html[lang="fr"] .nav-menu a {
+    font-size: 1rem; /* Smaller font for French */
+    padding: 6px 10px; /* Reduced padding for French */
+}
+
+html[lang="fr"] .lang-toggle a {
+    padding: 6px 10px; /* Match French nav links */
+    font-size: 1rem;
 }
 
 /* Team Section */
@@ -181,16 +239,16 @@ body {
     transition: all 0.3s ease;
 }
 
-
+.team-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
 
 .team-img {
     width: 100%;
     height: 500px;
     object-fit: cover;
-  
 }
-
-
 
 .team-description {
     padding: 20px;
@@ -201,6 +259,8 @@ body {
     font-size: 1.5rem;
     color: #003d82;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .team-description .role {
@@ -263,13 +323,11 @@ footer {
 .partners img {
     max-width: 50px;
     margin: 15px;
-    border-radius: 50%;
-    transition: transform 0.3s ease;
+   
+
 }
 
-.partners img:hover {
-    transform: scale(1.1);
-}
+
 
 .footer-bottom {
     text-align: center;
@@ -278,11 +336,11 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* Responsive Design (applies to both languages) */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        z-index: 1001;
+        z-index: 1001; /* Above nav-menu */
     }
 
     .nav-menu {
@@ -294,16 +352,28 @@ footer {
         background: #fff;
         padding: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+        z-index: 1000; /* Below hamburger but above content */
     }
 
     .nav-menu.active {
-        display: block;
+        display: block !important; /* Ensure it shows when active */
     }
 
     .nav-menu ul {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .nav-menu ul li {
+        margin-left: 0; /* Reset for vertical layout */
+    }
+
+    .lang-toggle {
+        margin-top: 10px;
+    }
+
+    html[lang="fr"] .nav-menu ul li {
+        margin-left: 0; /* Ensure French follows mobile reset */
     }
 
     .logo-text {
@@ -321,4 +391,27 @@ footer {
     .team-item {
         max-width: 100%;
     }
+}
+
+/* Page Transition Styles */
+#wokovuway-wrapper {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#wokovuway-wrapper.fade-out-full {
+    opacity: 0;
+}
+
+
+
+.nav-menu a.active {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+}
+
+/* Add this to reinforce active state */
+.nav-menu a:not(.active) {
+    background: none; /* Ensure non-active links don’t retain background */
 }

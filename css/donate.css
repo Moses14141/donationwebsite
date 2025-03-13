@@ -33,7 +33,7 @@ body {
 }
 
 
-.nav-container {
+.ntainer {
     max-width: 1280px;
     margin: 0 auto;
     padding: 20px;
@@ -63,7 +63,7 @@ body {
 
 .logo:hover .logo-img {
     transform: scale(1.05);
-}
+}nav-co
 
 .nav-menu ul {
     display: flex;

@@ -20,6 +20,7 @@ body {
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* Header */
@@ -40,6 +41,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #f39c12;
+    flex-wrap: nowrap;
 }
 
 .logo-img {
@@ -67,10 +69,14 @@ body {
 .nav-menu ul {
     display: flex;
     list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
 }
 
 .nav-menu ul li {
-    margin-left: 30px;
+    margin-left: 30px; /* Default spacing for English */
 }
 
 .nav-menu a {
@@ -80,6 +86,7 @@ body {
     padding: 8px 12px;
     transition: all 0.3s ease;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-menu a::after {
@@ -100,10 +107,28 @@ body {
     transform-origin: bottom left;
 }
 
-.nav-menu a:hover, .nav-menu a.active {
+.nav-menu a:hover {
     color: #fff;
     background: #f39c12;
     border-radius: 5px;
+}
+
+.nav-menu a.active {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+    z-index: 1; /* Ensure active overrides hover */
+}
+
+/* Reset hover during fade-out */
+#wokovuway-wrapper.fade-out-full .nav-menu a:hover {
+    color: #333;
+    background: none;
+}
+
+/* Ensure non-active links don’t retain hover styling */
+.nav-menu a:not(.active) {
+    background: none;
 }
 
 .hamburger {
@@ -111,49 +136,7 @@ body {
     font-size: 1.8rem;
     cursor: pointer;
     color: #003d82;
-    z-index: 1001; /* Ensure it’s above nav-menu */
-}
-
-
-
-
-/* Base Styles (English - lang="en") */
-.nav-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f39c12;
-    flex-wrap: nowrap;
-}
-
-.nav-menu ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    flex-wrap: nowrap;
-}
-
-.nav-menu ul li {
-    margin-left: 30px; /* Default spacing for English */
-}
-
-.nav-menu a {
-    color: #333;
-    font-weight: 600;
-    font-size: 1.1rem; /* Default size for English */
-    padding: 8px 12px; /* Default padding for English */
-    transition: color 0.3s ease, background 0.3s ease;
-    white-space: nowrap;
-}
-
-.nav-menu a:hover {
-    color: #fff;
-    background: #f39c12;
+    z-index: 1001;
 }
 
 .lang-toggle a {
@@ -176,60 +159,20 @@ body {
     border-radius: 5px;
 }
 
-/* French-Specific Styles (lang="fr") */
+/* French-Specific Styles */
 html[lang="fr"] .nav-menu ul li {
-    margin-left: 20px; /* Reduced spacing for French */
+    margin-left: 20px;
 }
 
 html[lang="fr"] .nav-menu a {
-    font-size: 1rem; /* Smaller font for French */
-    padding: 6px 10px; /* Reduced padding for French */
+    font-size: 1rem;
+    padding: 6px 10px;
 }
 
 html[lang="fr"] .lang-toggle a {
-    padding: 6px 10px; /* Match French nav links */
+    padding: 6px 10px;
     font-size: 1rem;
 }
-
-/* Responsive Design (applies to both languages) */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-menu.active {
-        display: block;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-menu ul li {
-        margin-left: 0; /* Reset for vertical layout */
-    }
-
-    .lang-toggle {
-        margin-top: 10px;
-    }
-
-    /* Ensure French adjustments don’t override mobile layout unnecessarily */
-    html[lang="fr"] .nav-menu ul li {
-        margin-left: 0;
-    }
-}
-
-
-
-
 
 /* Contact Section */
 .contact-section {
@@ -243,13 +186,17 @@ html[lang="fr"] .lang-toggle a {
     margin: 0 auto;
 }
 
+.text-center {
+    width: 100%;
+}
+
 .contact-section h1 {
     font-size: 2.8rem;
     color: #003d82;
     margin-bottom: 20px;
 }
 
-.text-center.lead {
+.contact-section .lead {
     font-size: 1.4rem;
     color: #666;
     margin-bottom: 40px;
@@ -265,58 +212,41 @@ html[lang="fr"] .lang-toggle a {
 .col-md-6 {
     flex: 1;
     min-width: 300px;
-    padding: 20px;
 }
 
-/* Contact Form */
-.contact-form {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
-
-.contact-form:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
+.contact-form .form-group {
     margin-bottom: 20px;
     text-align: left;
 }
 
-.form-group label {
+.contact-form label {
     display: block;
     font-size: 1.1rem;
     color: #003d82;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group textarea {
+.contact-form input, .contact-form textarea {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.contact-form input:focus, .contact-form textarea:focus {
     border-color: #f39c12;
     outline: none;
 }
 
-.form-group textarea {
+.contact-form textarea {
     resize: vertical;
 }
 
 .btn-submit {
     display: inline-block;
-    padding: 14px 30px;
+    padding: 12px 25px;
     background: #f39c12;
     color: #fff;
     font-weight: 600;
@@ -332,15 +262,6 @@ html[lang="fr"] .lang-toggle a {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Contact Info */
-.contact-info {
-    background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    text-align: left;
-}
-
 .contact-info h3 {
     font-size: 1.5rem;
     color: #003d82;
@@ -350,23 +271,11 @@ html[lang="fr"] .lang-toggle a {
 .contact-info p {
     font-size: 1.1rem;
     margin-bottom: 15px;
-    display: flex;
-    align-items: center;
 }
 
 .contact-info i {
-    font-size: 1.4rem;
     color: #f39c12;
     margin-right: 10px;
-}
-
-.contact-info a {
-    color: #003d82;
-    transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-    color: #f39c12;
 }
 
 /* Footer */
@@ -377,8 +286,6 @@ footer {
 }
 
 .footer-row {
-    max-width: 1280px;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
@@ -397,6 +304,17 @@ footer {
 
 .footer-column a:hover {
     color: #f39c12;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #f39c12;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #e67e22;
 }
 
 .social-icons a {
@@ -427,6 +345,7 @@ footer {
 @media (max-width: 768px) {
     .hamburger {
         display: block;
+        z-index: 1001;
     }
 
     .nav-menu {
@@ -436,17 +355,30 @@ footer {
         left: 0;
         right: 0;
         background: #fff;
-        padding: 20px;
+        padding: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
 
     .nav-menu.active {
-        display: block;
+        display: block !important;
     }
 
     .nav-menu ul {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
+    }
+
+    .nav-menu ul li {
+        margin-left: 0;
+    }
+
+    .lang-toggle {
+        margin-top: 10px;
+    }
+
+    html[lang="fr"] .nav-menu ul li {
+        margin-left: 0;
     }
 
     .logo-text {
@@ -457,24 +389,17 @@ footer {
         font-size: 2rem;
     }
 
-    .text-center.lead {
+    .contact-section .lead {
         font-size: 1.1rem;
-    }
-
-    .col-md-6 {
-        flex: 100%;
-        min-width: 100%;
     }
 }
 
-
-
-/* Replace existing #wokovuway-wrapper styles */
+/* Page Transition Styles */
 #wokovuway-wrapper {
     opacity: 1;
-    transition: opacity 0.4s ease-in-out; /* Updated duration for smoothness */
+    transition: opacity 0.4s ease-in-out;
 }
 
 #wokovuway-wrapper.fade-out-full {
-    opacity: 0; /* Full fade-out */
+    opacity: 0;
 }

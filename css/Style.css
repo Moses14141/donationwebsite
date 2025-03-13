@@ -772,3 +772,20 @@ body {
 #wokovuway-wrapper.fade-out-full {
     opacity: 0; /* Full fade-out instead of 0.2 */
 }
+
+
+
+
+#wokovuway-wrapper.fade-out-full .nav-menu a:hover {
+    color: #333;
+    background: none;
+}
+.nav-menu a.active {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+    z-index: 1;
+}
+.nav-menu a:not(.active) {
+    background: none;
+}

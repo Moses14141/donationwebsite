@@ -1,22 +1,37 @@
+console.log('Script file loaded');
 document.addEventListener('DOMContentLoaded', () => {
-    // Hamburger Menu and Navigation with Smooth Transition
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a:not(#translate-link)');
+    const translateLink = document.querySelector('#translate-link');
     const wrapper = document.querySelector('#wokovuway-wrapper');
-    const currentPage = window.location.pathname.split('/').pop() || 'contact.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'contact.html'; // Adjusted default
 
-    // Set active link and fade in on load
+    console.log('Elements loaded:', { hamburger, navMenu, wrapper, currentPage, navLinks: navLinks.length, translateLink });
+
+    // Reset all styles and set active link on load
+    const resetLinkStyles = (links) => {
+        links.forEach(link => {
+            link.classList.remove('active');
+            link.style.background = 'none'; // Reset hover
+            link.style.color = '#333';
+            link.style.transition = 'none'; // Disable transition during reset
+        });
+    };
+
+    resetLinkStyles(navLinks);
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPage) {
             link.classList.add('active');
-        } else {
-            link.classList.remove('active');
+            link.style.transition = 'all 0.3s ease'; // Re-enable for active link
         }
     });
 
-    // Smoother fade-in on page load
+    // Force style recalculation
+    document.body.offsetHeight;
+
+    // Fade-in on page load
     if (wrapper) {
         wrapper.style.opacity = '0';
         wrapper.style.transition = 'opacity 0.4s ease-in-out';
@@ -27,10 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Wrapper not found in the DOM.');
     }
 
+    // Hamburger menu logic
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
+            console.log('Hamburger clicked');
             navMenu.classList.toggle('active');
             const isActive = navMenu.classList.contains('active');
+            console.log('Nav menu active state:', isActive);
             hamburger.querySelector('i').classList.toggle('fa-bars', !isActive);
             hamburger.querySelector('i').classList.toggle('fa-times', isActive);
         });
@@ -38,16 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Hamburger or nav-menu not found in the DOM.');
     }
 
+    // Navigation links
     navLinks.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href && href !== currentPage && !href.startsWith('#')) {
                 e.preventDefault();
-                wrapper.classList.add('fade-out-full');
+                console.log('Nav link clicked:', href);
 
-                navLinks.forEach(link => link.classList.remove('active'));
+                resetLinkStyles(navLinks);
                 this.classList.add('active');
+                this.style.transition = 'all 0.3s ease';
 
+                document.body.offsetHeight;
+
+                wrapper.classList.add('fade-out-full');
                 if (navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
                     hamburger.querySelector('i').classList.remove('fa-times');
@@ -55,44 +78,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 setTimeout(() => {
+                    console.log('Navigating to:', href);
                     window.location.href = href;
-                }, 400); // Matches CSS duration
+                }, 450); // Increased to ensure reset renders
             }
         });
+
+        // Debug hover
+        anchor.addEventListener('mouseover', () => console.log('Hover on:', anchor.getAttribute('href')));
+        anchor.addEventListener('mouseout', () => console.log('Hover off:', anchor.getAttribute('href')));
     });
 
-    // Internal Links (e.g., "Read More", email link)
-    const internalLinks = document.querySelectorAll('a:not(.nav-menu a)');
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href && !href.startsWith('#') && href !== currentPage && !href.startsWith('mailto:')) {
-                e.preventDefault();
-                wrapper.classList.add('fade-out-full');
-
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 400);
-
-                navLinks.forEach(navLink => {
-                    const navHref = navLink.getAttribute('href');
-                    if (navHref === href) {
-                        navLinks.forEach(item => item.classList.remove('active'));
-                        navLink.classList.add('active');
-                    }
-                });
-            }
-        });
-    });
-
-    // Translate Link Functionality (Smooth Transition)
-    const translateLink = document.querySelector('#translate-link');
+    // Translate link
     if (translateLink) {
         translateLink.addEventListener('click', (e) => {
             e.preventDefault();
-            const href = currentPage === 'contact.html' ? 'contact_french.html' : 'contact.html'; // Toggle between English and French
-            wrapper.classList.add('fade-out-full');
+            console.log('Translate link clicked');
 
+            // Always go to index page in the opposite language
+            const targetPage = currentPage.includes('french') ? 'index.html' : 'index_french.html';
+            console.log('Target page:', targetPage);
+
+            resetLinkStyles(navLinks);
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === 'index.html' || link.getAttribute('href') === 'index_french.html') {
+                    link.classList.add('active');
+                    link.style.transition = 'all 0.3s ease';
+                }
+            });
+
+            document.body.offsetHeight;
+
+            wrapper.classList.add('fade-out-full');
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
                 hamburger.querySelector('i').classList.remove('fa-times');
@@ -100,8 +117,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             setTimeout(() => {
-                window.location.href = href;
-            }, 400);
+                console.log('Navigating to:', targetPage);
+                window.location.href = targetPage;
+            }, 450);
         });
+
+        // Debug hover for translate link
+        translateLink.addEventListener('mouseover', () => console.log('Hover on translate-link'));
+        translateLink.addEventListener('mouseout', () => console.log('Hover off translate-link'));
+    } else {
+        console.error('Translate link not found in DOM');
     }
+
+    // Internal links
+    const internalLinks = document.querySelectorAll('a:not(.nav-menu a):not(#translate-link)');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && !href.startsWith('#') && href !== currentPage && !href.startsWith('mailto:')) {
+                e.preventDefault();
+                console.log('Internal link clicked:', href);
+
+                resetLinkStyles(navLinks);
+                navLinks.forEach(navLink => {
+                    if (navLink.getAttribute('href') === href) {
+                        navLink.classList.add('active');
+                        navLink.style.transition = 'all 0.3s ease';
+                    }
+                });
+
+                document.body.offsetHeight;
+
+                wrapper.classList.add('fade-out-full');
+                setTimeout(() => {
+                    console.log('Navigating to:', href);
+                    window.location.href = href;
+                }, 450);
+            }
+        });
+    });
 });
