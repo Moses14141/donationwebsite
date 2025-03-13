@@ -20,6 +20,7 @@ body {
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* Header */
@@ -40,18 +41,19 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #f39c12;
-}
-.logo-img {
-    height: 80px; /* Larger logo */
-    width: 80px; /* Set width equal to height */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image fits inside the circle */
-    transition: transform 0.3s ease;
-    border: 4px solid #333; /* Blue border around the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the logo */
-    padding: 2px; /* Adds spacing between the border and the image */
+    flex-wrap: nowrap;
 }
 
+.logo-img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border: 4px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 2px;
+}
 
 .logo-text {
     font-size: 1.8rem;
@@ -67,6 +69,10 @@ body {
 .nav-menu ul {
     display: flex;
     list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
 }
 
 .nav-menu ul li {
@@ -78,13 +84,33 @@ body {
     font-weight: 600;
     font-size: 1.1rem;
     padding: 8px 12px;
-    transition: color 0.3s ease, background 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-menu a:hover::after, .nav-menu a.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .nav-menu a:hover, .nav-menu a.active {
     color: #fff;
     background: #f39c12;
-   
+    border-radius: 5px;
 }
 
 .hamburger {
@@ -92,6 +118,7 @@ body {
     font-size: 1.8rem;
     cursor: pointer;
     color: #003d82;
+    z-index: 1001;
 }
 
 /* Main Content */
@@ -100,8 +127,6 @@ body {
     margin: 60px auto;
     padding: 20px;
     text-align: center;
-    
-
 }
 
 .page-title {
@@ -110,20 +135,19 @@ body {
     margin-bottom: 40px;
 }
 
-
-
-
 /* Policy Sections */
 .policy-section {
     text-align: left;
     margin-bottom: 40px;
     padding: 20px;
     background: #fff;
- 
-    
+    animation: fadeInUp 0.6s ease-in-out forwards;
 }
 
-
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 .policy-section h2 {
     font-size: 1.8rem;
@@ -176,22 +200,27 @@ footer {
     background: linear-gradient(135deg, #003d82, #002b5c);
     color: #fff;
     padding: 60px 20px 20px;
-    
+
 }
 
-.footer-row {
+.container {
     max-width: 1280px;
     margin: 0 auto;
+}
+
+
+.footer-row {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     justify-content: space-between;
+    margin-bottom: 25px;
     text-align: left;
 }
 
 .footer-column {
     flex: 1;
-    min-width: 220px;
+    min-width: 2px;
 }
 
 .footer-column h4 {
@@ -200,6 +229,10 @@ footer {
 }
 
 .footer-column a:hover {
+    color: chocolate;
+}
+
+.footer-column li  {
     color: #f39c12;
 }
 
@@ -209,6 +242,7 @@ footer {
     margin: 0 15px;
     font-size: 1.4rem;
     transition: color 0.3s ease;
+    color: #e67e22;
 }
 
 .partners img {
@@ -216,6 +250,8 @@ footer {
     margin: 15px;
     border-radius: 50%;
     transition: transform 0.3s ease;
+    margin-bottom: 5px;
+    
 }
 
 .partners img:hover {
@@ -228,10 +264,12 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.9rem;
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
+        z-index: 1001; /* Above nav-menu */
     }
 
     .nav-menu {
@@ -241,8 +279,9 @@ footer {
         left: 0;
         right: 0;
         background: #fff;
-        padding: 20px;
+        padding: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
 
     .nav-menu.active {
@@ -251,45 +290,47 @@ footer {
 
     .nav-menu ul {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
 
-    /* Adjusted heading font for slides */
     .slide-content h1 {
-        font-size: 2rem; /* Reduced from 2.5rem for better fit */
-        line-height: 1.2; /* Improved readability */
-        font-weight: 700; /* Consistent weight */
+        font-size: 1.8rem; /* Adjusted for mobile */
     }
 
-    /* Adjusted paragraph font for slides */
     .slide-content p {
-        font-size: 1rem; /* Slightly smaller than 1.1rem for balance */
-        line-height: 1.5; /* Better spacing */
-        font-weight: 400; /* Normal weight for readability */
+        font-size: 1rem; /* Adjusted for mobile */
     }
 
     .feature-item, .impact-item {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
     }
 
     .gallery-slide {
         min-width: 280px;
     }
-    
-    /* Adjusted logo text font */
+
     .logo-text {
-        font-size: 1.5rem; /* More compact */
+        font-size: 1.5rem;
     }
 
-    /* Optional: Adjust navigation menu item font */
-    .nav-menu ul li {
-        font-size: 1rem; /* Consistent with paragraph size */
-        line-height: 1.4; /* Spacing for touch targets */
+    #wokovuway-hero {
+        height: 50vh; /* Reduced for mobile */
     }
-    /* Hero Section */
-#wokovuway-hero {
-    position: relative;
-    height: 40vh;
-    overflow: hidden;
 }
+
+.read-more {
+    color: #e67e22;
+}
+
+
+
+/* Page Transition Styles */
+#wokovuway-wrapper {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#wokovuway-wrapper.fade-out-full {
+    opacity: 0;
 }

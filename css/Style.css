@@ -574,7 +574,7 @@ footer {
     flex-wrap: wrap;
     gap: 40px;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .footer-column {
