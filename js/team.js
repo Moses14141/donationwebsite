@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Force style recalculation
     document.body.offsetHeight;
 
-    // Fade-in on page load
+    // Fade-in on page load (faster)
     if (wrapper) {
         wrapper.style.opacity = '0';
-        wrapper.style.transition = 'opacity 0.4s ease-in-out';
+        wrapper.style.transition = 'opacity 0.25s ease-in-out'; // Reduced from 0.4s to 0.25s
         requestAnimationFrame(() => {
             wrapper.style.opacity = '1';
         });
@@ -65,12 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 console.log('Nav link clicked:', href);
 
-                // Reset all links’ styles
                 resetLinkStyles(navLinks);
                 this.classList.add('active');
                 this.style.transition = 'all 0.3s ease';
 
-                // Force style recalculation
                 document.body.offsetHeight;
 
                 wrapper.classList.add('fade-out-full');
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     console.log('Navigating to:', href);
                     window.location.href = href;
-                }, 450);
+                }, 250); // Reduced from 450ms to 250ms
             }
         });
 
@@ -100,10 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetPage = currentPage.includes('french') ? currentPage.replace('_french', '') : currentPage.replace('.html', '_french.html');
             console.log('Target page:', targetPage);
 
-            // Reset all nav links’ styles before translation
             resetLinkStyles(navLinks);
-
-            // Find and activate the corresponding nav link (if any)
             navLinks.forEach(link => {
                 if (link.getAttribute('href') === targetPage) {
                     link.classList.add('active');
@@ -111,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Force style recalculation
             document.body.offsetHeight;
 
             wrapper.classList.add('fade-out-full');
@@ -124,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 console.log('Navigating to:', targetPage);
                 window.location.href = targetPage;
-            }, 450);
+            }, 250); // Reduced from 450ms to 250ms
         });
 
         // Debug hover for translate link
@@ -137,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Internal links (e.g., "Read More", social links)
     const internalLinks = document.querySelectorAll('a:not(.nav-menu a):not(#translate-link)');
     internalLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href && !href.startsWith('#') && href !== currentPage && !href.startsWith('mailto:')) {
                 e.preventDefault();
@@ -157,8 +151,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     console.log('Navigating to:', href);
                     window.location.href = href;
-                }, 450);
+                }, 250); // Reduced from 450ms to 250ms
             }
         });
     });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Existing code...
+    const teamImages = document.querySelectorAll('.team-img');
+    teamImages.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded'); // Already loaded images
+        } else {
+            img.addEventListener('load', () => img.classList.add('loaded')); // Images still loading
+        }
+    });
+    // Rest of your existing code...
+});
+
+
+console.log('Script file loaded');
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a:not(#translate-link)');
+    const translateLink = document.querySelector('#translate-link');
+    const wrapper = document.querySelector('#wokovuway-wrapper');
+    const currentPage = window.location.pathname.split('/').pop() || 'team_french.html';
+
+    // Add image load handling
+    const teamImages = document.querySelectorAll('.team-img');
+    teamImages.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => img.classList.add('loaded'));
+        }
+    });
+
+    // Rest of your existing code...
+    console.log('Elements loaded:', { hamburger, navMenu, wrapper, currentPage, navLinks: navLinks.length, translateLink });
+    // ... continue with resetLinkStyles, etc.
 });

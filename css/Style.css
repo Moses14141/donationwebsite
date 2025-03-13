@@ -191,6 +191,10 @@ html[lang="fr"] .lang-toggle a {
     font-size: 1rem;
 }
 
+html[lang="fr"] .logo-text {
+    font-size: 2px;
+}
+
 /* Responsive Design (applies to both languages) */
 @media (max-width: 768px) {
     .nav-menu {
@@ -570,11 +574,12 @@ footer {
     flex-wrap: wrap;
     gap: 40px;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .footer-column {
     flex: 1;
-    min-width: 220px;
+    min-width: 2px;
 }
 
 .footer-column h4 {
@@ -583,13 +588,20 @@ footer {
 }
 
 .footer-column a:hover {
+    color: chocolate;
+}
+
+.footer-column li  {
     color: #f39c12;
 }
+
+
 
 .social-icons a {
     margin: 0 15px;
     font-size: 1.4rem;
     transition: color 0.3s ease;
+    color: #e67e22;
 }
 
 .partners img {
@@ -666,6 +678,10 @@ footer {
     }
 }
 
+.read-more {
+    color: #e67e22;
+}
+
 
 
 
@@ -709,14 +725,20 @@ body {
     .social-icons a {
         font-size: 1.2rem; /* Adjust icon size */
         margin: 0 10px; /* Smaller margin for icons */
+        color: #e67e22;
     }
 
     .partners img {
         max-width: 40px; /* Slightly smaller images for mobile */
+    
     }
 
     .footer-bottom {
         font-size: 0.8rem; /* Smaller font size for the footer text */
+    }
+
+    .footer-column li  {
+        color: #f39c12;
     }
 }
 

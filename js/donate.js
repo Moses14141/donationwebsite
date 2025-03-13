@@ -1,139 +1,92 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Hero Slider
-    const slides = document.querySelectorAll("#donation-hero .slide");
-    const dotsContainer = document.querySelector("#donation-hero .slider-dots");
+console.log('Script file loaded');
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.querySelector('.slider-dots');
     let currentSlide = 0;
 
-    if (!dotsContainer) {
-        console.error("Slider dots container not found");
-    } else {
-        slides.forEach((_, i) => {
-            const dot = document.createElement("span");
-            dot.classList.add("dot");
-            dot.dataset.slide = i;
-            if (i === 0) dot.classList.add("active");
-            dot.addEventListener("click", () => {
-                currentSlide = i;
-                updateSlides();
-            });
-            dotsContainer.appendChild(dot);
-        });
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    // Slide function
+    function goToSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+        currentSlide = index;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
     }
 
-    function updateSlides() {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === currentSlide);
-        });
-        document.querySelectorAll("#donation-hero .dot").forEach((dot, i) => {
-            dot.classList.toggle("active", i === currentSlide);
-        });
-    }
-
+    // Auto-slide every 5 seconds
     setInterval(() => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlides();
+        goToSlide((currentSlide + 1) % slides.length);
     }, 5000);
 
-    // Hamburger Menu
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+    // Rest of your navigation logic (hamburger, nav links, translate link)...
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a:not(#translate-link)');
+    const translateLink = document.querySelector('#translate-link');
+    const wrapper = document.querySelector('#wokovuway-wrapper');
+    const currentPage = window.location.pathname.split('/').pop() || 'donate.html';
 
-    if (!hamburger || !navMenu) {
-        console.error("Hamburger or nav-menu not found:", { hamburger, navMenu });
-    } else {
-        hamburger.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-            const isActive = navMenu.classList.contains("active");
-            hamburger.querySelector("i").classList.toggle("fa-bars", !isActive);
-            hamburger.querySelector("i").classList.toggle("fa-times", isActive);
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const isActive = navMenu.classList.contains('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars', !isActive);
+            hamburger.querySelector('i').classList.toggle('fa-times', isActive);
         });
     }
 
-    // Navigation with Smooth Transition
-    const navLinks = document.querySelectorAll(".nav-menu a:not(#translate-link)");
-    const wrapper = document.querySelector("#wokovuway-wrapper");
-    const currentPage = window.location.pathname.split('/').pop() || 'donate.html';
+    const resetLinkStyles = (links) => {
+        links.forEach(link => {
+            link.classList.remove('active');
+            link.style.background = 'none';
+            link.style.color = '#333';
+            link.style.transition = 'none';
+        });
+    };
 
+    resetLinkStyles(navLinks);
     navLinks.forEach(link => {
-        const href = link.getAttribute("href");
-        if (href === currentPage) {
-            link.classList.add("active");
-        } else {
-            link.classList.remove("active");
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+            link.style.transition = 'all 0.3s ease';
         }
     });
 
-    // Smoother fade-in on page load
-    wrapper.style.opacity = "0";
-    wrapper.style.transition = "opacity 0.4s ease-in-out";
-    requestAnimationFrame(() => {
-        wrapper.style.opacity = "1";
-    });
-
     navLinks.forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            const href = this.getAttribute("href");
-            if (href && href !== currentPage && !href.startsWith("#")) {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href !== currentPage && !href.startsWith('#')) {
                 e.preventDefault();
-                wrapper.classList.add("fade-out-full");
-
-                navLinks.forEach(link => link.classList.remove("active"));
-                this.classList.add("active");
-
-                if (navMenu.classList.contains("active")) {
-                    navMenu.classList.remove("active");
-                    hamburger.querySelector("i").classList.remove("fa-times");
-                    hamburger.querySelector("i").classList.add("fa-bars");
-                }
-
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 400);
+                resetLinkStyles(navLinks);
+                this.classList.add('active');
+                this.style.transition = 'all 0.3s ease';
+                wrapper.classList.add('fade-out-full');
+                setTimeout(() => window.location.href = href, 400);
             }
         });
     });
 
-    // Internal Links (e.g., GoFundMe, form)
-    const internalLinks = document.querySelectorAll('a:not(.nav-menu a)');
-    internalLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
-            const href = this.getAttribute("href");
-            if (href && !href.startsWith("#") && href !== currentPage && !href.startsWith("mailto:")) {
-                e.preventDefault();
-                wrapper.classList.add("fade-out-full");
-
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 400);
-
-                navLinks.forEach(navLink => {
-                    const navHref = navLink.getAttribute("href");
-                    if (navHref === href) {
-                        navLinks.forEach(item => item.classList.remove("active"));
-                        navLink.classList.add("active");
-                    }
-                });
-            }
-        });
-    });
-
-    // Translate Link Functionality (Smooth Transition)
-    const translateLink = document.querySelector("#translate-link");
     if (translateLink) {
-        translateLink.addEventListener("click", (e) => {
+        translateLink.addEventListener('click', (e) => {
             e.preventDefault();
-            const href = currentPage === 'donate.html' ? 'donate_french.html' : 'donate.html'; // Toggle between English and French
-            wrapper.classList.add("fade-out-full");
-
-            if (navMenu.classList.contains("active")) {
-                navMenu.classList.remove("active");
-                hamburger.querySelector("i").classList.remove("fa-times");
-                hamburger.querySelector("i").classList.add("fa-bars");
-            }
-
-            setTimeout(() => {
-                window.location.href = href;
-            }, 400);
+            const targetPage = currentPage.includes('french') ? currentPage.replace('_french', '') : currentPage.replace('.html', '_french.html');
+            resetLinkStyles(navLinks);
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === targetPage) link.classList.add('active');
+            });
+            wrapper.classList.add('fade-out-full');
+            setTimeout(() => window.location.href = targetPage, 400);
         });
     }
 });

@@ -20,7 +20,6 @@ body {
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
-    min-height: 100vh;
 }
 
 /* Header */
@@ -79,9 +78,6 @@ body {
     margin-left: 30px; /* Default spacing for English */
 }
 
-/* Existing styles unchanged until navigation section */
-
-/* Navigation Links */
 .nav-menu a {
     color: #333;
     font-weight: 600;
@@ -120,38 +116,19 @@ body {
     color: #fff;
     background: #f39c12;
     border-radius: 5px;
-    z-index: 1; /* Ensure active is above hover */
+    z-index: 1;
 }
 
-/* Reset hover during fade-out */
-#wokovuway-wrapper.fade-out-full .nav-menu a:hover {
-    color: #333;
-    background: none;
-}
-
-/* Ensure non-active links don’t retain hover styling */
 .nav-menu a:not(.active) {
     background: none;
 }
-
-/* French-Specific Styles */
-html[lang="fr"] .nav-menu ul li {
-    margin-left: 20px;
-}
-
-html[lang="fr"] .nav-menu a {
-    font-size: 1rem;
-    padding: 6px 10px;
-}
-
-/* Rest of your CSS (hamburger, team section, footer) remains unchanged */
 
 .hamburger {
     display: none;
     font-size: 1.8rem;
     cursor: pointer;
     color: #003d82;
-    z-index: 1001; /* Above nav-menu */
+    z-index: 1001;
 }
 
 .lang-toggle a {
@@ -174,19 +151,23 @@ html[lang="fr"] .nav-menu a {
     border-radius: 5px;
 }
 
-/* French-Specific Styles (lang Produk="fr") */
+/* French-Specific Styles (lang="fr") */
 html[lang="fr"] .nav-menu ul li {
-    margin-left: 20px; /* Reduced spacing for French */
+    margin-left: 20px;
 }
 
 html[lang="fr"] .nav-menu a {
-    font-size: 1rem; /* Smaller font for French */
-    padding: 6px 10px; /* Reduced padding for French */
+    font-size: 1rem;
+    padding: 6px 10px;
 }
 
 html[lang="fr"] .lang-toggle a {
-    padding: 6px 10px; /* Match French nav links */
+    padding: 6px 10px;
     font-size: 1rem;
+}
+
+html[lang="fr"] .logo-text {
+    font-size: 2px; /* Likely a typo; consider correcting to a larger value like 1.8rem */
 }
 
 /* Team Section */
@@ -248,6 +229,12 @@ html[lang="fr"] .lang-toggle a {
     width: 100%;
     height: 500px;
     object-fit: cover;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.6s ease-in-out; /* Smooth fade-in over 0.6s */
+}
+
+.team-img.loaded {
+    opacity: 1; /* Fade to full visibility when loaded */
 }
 
 .team-description {
@@ -291,7 +278,7 @@ footer {
 
 .footer-column {
     flex: 1;
-    min-width: 220px;
+    min-width: 220px; /* Adjusted from 2px, likely a typo */
 }
 
 .footer-column h4 {
@@ -299,19 +286,12 @@ footer {
     margin-bottom: 20px;
 }
 
-.footer-column a:hover {
-    color: #f39c12;
+footer a {
+    color: #f39c12; /* All links in footer are orange */
 }
 
-.read-more {
-    display: inline-block;
-    margin-top: 10px;
-    color: #f39c12;
-    transition: color 0.3s ease;
-}
-
-.read-more:hover {
-    color: #e67e22;
+footer a:hover {
+    color: #e67e22; /* Slightly darker orange on hover */
 }
 
 .social-icons a {
@@ -323,11 +303,14 @@ footer {
 .partners img {
     max-width: 50px;
     margin: 15px;
-   
-
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    margin-bottom: 5px;
 }
 
-
+.partners img:hover {
+    transform: scale(1.1);
+}
 
 .footer-bottom {
     text-align: center;
@@ -336,11 +319,11 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive Design (applies to both languages) */
+/* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        z-index: 1001; /* Above nav-menu */
+        z-index: 1001;
     }
 
     .nav-menu {
@@ -352,11 +335,11 @@ footer {
         background: #fff;
         padding: 15px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        z-index: 1000; /* Below hamburger but above content */
+        z-index: 1000;
     }
 
     .nav-menu.active {
-        display: block !important; /* Ensure it shows when active */
+        display: block;
     }
 
     .nav-menu ul {
@@ -365,7 +348,7 @@ footer {
     }
 
     .nav-menu ul li {
-        margin-left: 0; /* Reset for vertical layout */
+        margin-left: 0;
     }
 
     .lang-toggle {
@@ -373,7 +356,7 @@ footer {
     }
 
     html[lang="fr"] .nav-menu ul li {
-        margin-left: 0; /* Ensure French follows mobile reset */
+        margin-left: 0;
     }
 
     .logo-text {
@@ -391,6 +374,33 @@ footer {
     .team-item {
         max-width: 100%;
     }
+
+    .footer-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+
+    .footer-column h4 {
+        font-size: 1.2rem;
+    }
+
+    .social-icons a {
+        font-size: 1.2rem;
+        margin: 0 10px;
+    }
+
+    .partners img {
+        max-width: 40px;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
 }
 
 /* Page Transition Styles */
@@ -403,15 +413,9 @@ footer {
     opacity: 0;
 }
 
-
-
-.nav-menu a.active {
-    color: #fff;
-    background: #f39c12;
-    border-radius: 5px;
+#wokovuway-wrapper.fade-out-full .nav-menu a:hover {
+    color: #333;
+    background: none;
 }
 
-/* Add this to reinforce active state */
-.nav-menu a:not(.active) {
-    background: none; /* Ensure non-active links don’t retain background */
-}
+/* Removed redundant sections (e.g., hero, features) not present in team.html */

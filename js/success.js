@@ -181,3 +181,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+console.log('Script file loaded');
+document.addEventListener("DOMContentLoaded", () => {
+    // Existing variable declarations
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLinks = document.querySelectorAll(".nav-menu a:not(#translate-link)");
+    const translateLink = document.querySelector('#translate-link');
+    const wrapper = document.querySelector("#wokovuway-wrapper");
+    const currentPage = window.location.pathname.split('/').pop() || 'success.html';
+
+    // Add image load handling
+    const catalogImages = document.querySelectorAll('.thumbnail img');
+    catalogImages.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => img.classList.add('loaded'));
+        }
+    });
+
+    // Rest of your existing success.js code...
+});
