@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* ------------------------------------------------------ Reset and Base Styles ------------------------------ */
 * {
     margin: 0;
     padding: 0;
@@ -6,10 +6,7 @@
     font-family: 'Arial', sans-serif;
 }
 
-a {
-    text-decoration: none !important;
-    color: inherit;
-}
+
 
 a:hover, a:visited, a:active {
     text-decoration: none !important;
@@ -20,30 +17,39 @@ body {
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
-    min-height: 100vh;
 }
 
-/* Header */
+/* ------------------------------------------------------ Header Style ------------------------------------------------------------ */
+/* Header Style */
 #wokovuway-header {
     background-color: #003d82;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    position: sticky; /* Keep as sticky to match home page */
     top: 0;
+    width: 100%;
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease; /* Limit transition to avoid movement */
 }
 
 .nav-container {
-    max-width: 1280px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f39c12;
-    flex-wrap: nowrap;
 }
 
+/* Ensure wrapper content isn't hidden behind sticky header */
+#wokovuway-wrapper {
+    padding-top: 0; /* Remove padding-top since sticky doesn't overlap like fixed */
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#wokovuway-wrapper.fade-out-full {
+    opacity: 0;
+}
 .logo-img {
     height: 80px;
     width: 80px;
@@ -69,10 +75,6 @@ body {
 .nav-menu ul {
     display: flex;
     list-style: none;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    flex-wrap: nowrap;
 }
 
 .nav-menu ul li {
@@ -86,7 +88,6 @@ body {
     padding: 8px 12px;
     transition: all 0.3s ease;
     position: relative;
-    white-space: nowrap;
 }
 
 .nav-menu a::after {
@@ -120,8 +121,7 @@ body {
     color: #003d82;
     z-index: 1001;
 }
-
-/* Main Content */
+/* ------------------------------------------------------------------------------ Main Content ------------------------------------- */
 .container {
     max-width: 1280px;
     margin: 60px auto;
@@ -205,15 +205,15 @@ footer {
 .footer-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     text-align: left;
 }
 
 .footer-column {
     flex: 1;
-    min-width: 2px;
+    min-width: 200px;
 }
 
 .footer-column h4 {
@@ -221,12 +221,20 @@ footer {
     margin-bottom: 20px;
 }
 
-.footer-column a:hover {
-    color: chocolate;
+.footer-column p, .footer-column a {
+    font-size: 0.9rem;
 }
 
-.footer-column li {
+.footer-column a:hover {
     color: #f39c12;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
 }
 
 .social-icons a {
@@ -236,32 +244,27 @@ footer {
     color: #e67e22;
 }
 
+.social-icons a:hover {
+    color: #f39c12;
+}
+
 .partners {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 160px; /* Adjust width to fit the 4 images */
-    }
-    
-    .partners img {
+    width: 160px;
+}
+
+.partners img {
     max-width: 50px;
     margin: 15px;
     border-radius: 50%;
     transition: transform 0.3s ease;
-    margin-bottom: 5px;
-    display: inline-block;
-    }
-    
-    /* Make sure images are paired in two rows */
-    .partners img:nth-child(odd) {
-    margin-right: 10px; /* Adds spacing between pairs */
-    }
-    
-    
-    .partners img:hover {
+}
+
+.partners img:hover {
     transform: scale(1.1);
-    }
-    
+}
 
 .footer-bottom {
     text-align: center;
@@ -270,11 +273,59 @@ footer {
     font-size: 0.9rem;
 }
 
+.footer-bottom a {
+    color: #f39c12;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #e67e22;
+}
+
+.footer a {
+    color: #f39c12;
+}
+
+.footer-column a {
+    color: #f39c12;
+}
+
+/* Page Transition Styles */
+#wokovuway-wrapper {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#wokovuway-wrapper.fade-out-full {
+    opacity: 0;
+}
+
+/* Language Toggle Styles */
+.lang-toggle a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle a i {
+    margin-right: 5px;
+    font-size: 1.2rem; /* Slightly larger for visibility */
+}
+
+.lang-toggle a:hover {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        z-index: 1001;
     }
 
     .nav-menu {
@@ -293,18 +344,44 @@ footer {
         display: block;
     }
 
+    .logo-text {
+        font-size: 20px;
+    }
+
     .nav-menu ul {
         flex-direction: column;
         gap: 10px;
     }
 
-    .logo-text {
-        font-size: 1.5rem;
+    .nav-menu ul li {
+        margin-left: 0;
     }
-}
 
-.read-more {
-    color: #e67e22;
+    .lang-toggle {
+        margin-top: 10px; /* Space it out in mobile menu */
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .services-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .footer-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .partners {
+        justify-content: center;
+    }
 }
 
 /* Page Transition Styles */

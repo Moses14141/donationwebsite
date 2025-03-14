@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* ------------------------------------------------------ Reset and Base Styles ------------------------------ */
 * {
     margin: 0;
     padding: 0;
@@ -20,9 +20,10 @@ body {
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
+    min-height: 100vh; /* Ensures full height, moved from duplicate */
 }
 
-/* Header */
+/* ------------------------------------------------------ Header Style ------------------------------------------------------------ */
 #wokovuway-header {
     background-color: #003d82;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -33,13 +34,14 @@ body {
 }
 
 .nav-container {
-    max-width: 1280px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f39c12;
+  
+    min-height: 120px; /* Stabilizes height, from earlier fix */
 }
 
 .logo-img {
@@ -67,6 +69,9 @@ body {
 .nav-menu ul {
     display: flex;
     list-style: none;
+    align-items: center;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
 }
 
 .nav-menu ul li {
@@ -80,6 +85,7 @@ body {
     padding: 8px 12px;
     transition: all 0.3s ease;
     position: relative;
+    display: inline-block; /* Consistent sizing */
 }
 
 .nav-menu a::after {
@@ -111,144 +117,16 @@ body {
     font-size: 1.8rem;
     cursor: pointer;
     color: #003d82;
-    z-index: 1001; /* Ensure it’s above nav-menu */
+    z-index: 1001;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-
-
-
-/* Base Styles (English - lang="en") */
-.nav-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f39c12;
-    flex-wrap: nowrap;
-}
-
-.nav-menu ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    flex-wrap: nowrap;
-}
-
-.nav-menu ul li {
-    margin-left: 30px; /* Default spacing for English */
-}
-
-.nav-menu a {
-    color: #333;
-    font-weight: 600;
-    font-size: 1.1rem; /* Default size for English */
-    padding: 8px 12px; /* Default padding for English */
-    transition: color 0.3s ease, background 0.3s ease;
-    white-space: nowrap;
-}
-
-.nav-menu a:hover {
-    color: #fff;
-    background: #f39c12;
-}
-
-.lang-toggle a {
-    display: flex;
-    align-items: center;
-    padding: 8px 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    transition: all 0.3s ease;
-}
-
-.lang-toggle a i {
-    margin-right: 5px;
-}
-
-.lang-toggle a:hover {
-    color: #fff;
-    background: #f39c12;
-    border-radius: 5px;
-}
-
-/* French-Specific Styles (lang="fr") */
-html[lang="fr"] .nav-menu ul li {
-    margin-left: 20px; /* Reduced spacing for French */
-}
-
-html[lang="fr"] .nav-menu a {
-    font-size: 1rem; /* Smaller font for French */
-    padding: 6px 10px; /* Reduced padding for French */
-}
-
-html[lang="fr"] .lang-toggle a {
-    padding: 6px 10px; /* Match French nav links */
-    font-size: 1rem;
-}
-
-html[lang="fr"] .logo-text {
-    font-size: 20px;
-}
-
-/* Responsive Design (applies to both languages) */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-menu.active {
-        display: block;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-menu ul li {
-        margin-left: 0; /* Reset for vertical layout */
-    }
-
-    .lang-toggle {
-        margin-top: 10px;
-    }
-
-    /* Ensure French adjustments don’t override mobile layout unnecessarily */
-    html[lang="fr"] .nav-menu ul li {
-        margin-left: 0;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Hero Section */
+/* ------------------------------------------------------------- Hero Section ----------------------------------------------------- */
 #wokovuway-hero {
     position: relative;
-    height: 65vh;
+    height: 55vh;
     overflow: hidden;
+    z-index: 1; /* Below sticky header */
 }
 
 .slider {
@@ -333,7 +211,6 @@ html[lang="fr"] .logo-text {
 }
 
 .btn:hover {
-  
     background: #002b5c;
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -361,7 +238,7 @@ html[lang="fr"] .logo-text {
     background: #f39c12;
 }
 
-/* Features Section */
+/* ------------------------------------------------------------------------------- Features Section ------------------------------- */
 #wokovuway-features {
     padding: 60px 20px;
     text-align: center;
@@ -403,15 +280,10 @@ html[lang="fr"] .logo-text {
     margin-bottom: 10px;
 }
 
-/* Mission Section */
+/* ------------------------------------------------------------------------------- Mission Section ------------------------------- */
 #wokovuway-mission {
     padding: 60px 20px;
-    background: #f7f9fa;
-    background-color: #f39c12;
-}
-
-.section-gray {
-    background: #f7f9fa;
+    background: #f7f9fa; /* Only one background needed, #f39c12 overridden */
 }
 
 .mission-container {
@@ -433,7 +305,7 @@ html[lang="fr"] .logo-text {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Gallery Section */
+/* ------------------------------------------------------------------------------- Gallery Section ------------------------------- */
 #wokovuway-gallery {
     padding: 60px 20px;
     text-align: center;
@@ -499,12 +371,11 @@ html[lang="fr"] .logo-text {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Support Section */
+/* ------------------------------------------------------------------------------- Support Section ------------------------------- */
 #wokovuway-support {
     padding: 60px 20px;
-    background: #f7f9fa;
+    background: #f7f9fa; /* aliceblue overridden, keeping consistent */
     text-align: center;
-    background-color: aliceblue;
 }
 
 .support-container h2 {
@@ -520,12 +391,11 @@ html[lang="fr"] .logo-text {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Impact Section */
+/* ------------------------------------------------------------------------------- Impact Section ------------------------------- */
 #wokovuway-impact {
     padding: 60px 20px;
     text-align: center;
-    /*background-color: beige; */
-    background-color: #f39c12;
+    background-color: #f39c12; /* beige commented out */
 }
 
 .impact-container h2 {
@@ -562,7 +432,7 @@ html[lang="fr"] .logo-text {
     margin-bottom: 10px;
 }
 
-/* Footer */
+/* ------------------------------------------------------------------------------- Footer ------------------------------------ */
 footer {
     background: linear-gradient(135deg, #003d82, #002b5c);
     color: #fff;
@@ -572,21 +442,20 @@ footer {
 .container {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 40px 20px; /* For services.html, reused here */
 }
 
 .footer-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 15px;
     justify-content: space-between;
     margin-bottom: 30px;
-    
-    
 }
 
 .footer-column {
     flex: 1;
-    min-width: 2px;
+    min-width: 200px;
 }
 
 .footer-column h4 {
@@ -594,15 +463,21 @@ footer {
     margin-bottom: 20px;
 }
 
-.footer-column a:hover {
-    color: chocolate;
+.footer-column p, .footer-column a {
+    font-size: 0.9rem;
 }
 
-.footer-column li  {
+.footer-column a:hover {
     color: #f39c12;
 }
 
+.footer-column ul {
+    list-style: none;
+}
 
+.footer-column ul li {
+    margin-bottom: 10px;
+}
 
 .social-icons a {
     margin: 0 15px;
@@ -611,27 +486,23 @@ footer {
     color: #e67e22;
 }
 
+.social-icons a:hover {
+    color: #f39c12;
+}
+
 .partners {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 160px; /* Adjust width to fit the 4 images */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 160px;
 }
 
 .partners img {
-  max-width: 50px;
-  margin: 15px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  margin-bottom: 5px;
-  display: inline-block;
+    max-width: 50px;
+    margin: 15px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
 }
-
-/* Make sure images are paired in two rows */
-.partners img:nth-child(odd) {
-  margin-right: 10px; /* Adds spacing between pairs */
-}
-
 
 .partners img:hover {
     transform: scale(1.1);
@@ -644,11 +515,58 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
+.footer-bottom a {
+    color: #f39c12;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #e67e22;
+}
+
+.footer a, .footer-column a {
+    color: #f39c12;
+}
+
+/* ------------------------------------------------------------------------------- Page Transition Styles ------------------------------- */
+#wokovuway-wrapper {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out; /* Unified from 0.2s version, matches JS */
+    position: relative;
+    min-height: 100vh; /* From earlier fix */
+}
+
+#wokovuway-wrapper.fade-out-full {
+    opacity: 0; /* Matches JS, .fade-out (0.2) unused */
+}
+
+/* ------------------------------------------------------------------------------- Language Toggle Styles ------------------------------- */
+.lang-toggle a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle a i {
+    margin-right: 5px;
+    font-size: 1.2rem;
+}
+
+.lang-toggle a:hover {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+}
+
+/* ------------------------------------------------------------------------------- Responsive Design ------------------------------- */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        z-index: 1001; /* Above nav-menu */
+        z-index: 1001;
     }
 
     .nav-menu {
@@ -672,12 +590,28 @@ footer {
         gap: 10px;
     }
 
+    .nav-menu ul li {
+        margin-left: 0;
+    }
+
+    .lang-toggle {
+        margin-top: 10px;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    #wokovuway-hero {
+        height: 50vh;
+    }
+
     .slide-content h1 {
-        font-size: 1.8rem; /* Adjusted for mobile */
+        font-size: 1.8rem;
     }
 
     .slide-content p {
-        font-size: 1rem; /* Adjusted for mobile */
+        font-size: 1rem;
     }
 
     .feature-item, .impact-item {
@@ -689,15 +623,18 @@ footer {
         min-width: 280px;
     }
 
-    .logo-text {
-        font-size: 1.5rem;
+    .footer-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    #wokovuway-hero {
-        height: 50vh; /* Reduced for mobile */
+    .partners {
+        justify-content: center;
     }
 }
 
+/* ------------------------------------------------------------------------------- Miscellaneous ------------------------------- */
 .read-more {
     color: #e67e22;
 }
@@ -705,62 +642,6 @@ footer {
 
 
 
-/* Page Transition Styles */
-#wokovuway-wrapper {
-    opacity: 1;
-    transition: opacity 0.2s ease-in-out; /* Slightly slower, softer blink */
-}
-
-#wokovuway-wrapper.fade-out {
-    opacity: 0.2; /* Not fully gone, less flashy */
-}
-
-body {
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-
-
-
-
-
-
-/* Mobile View Adjustments */
-@media (max-width: 768px) {
-    .footer-row {
-        flex-direction: column; /* Stack columns vertically on mobile */
-        align-items: center; /* Center the content */
-        gap: 30px;
-    }
-
-    .footer-column {
-        text-align: center; /* Ensure text is centered in each column */
-    }
-
-    .footer-column h4 {
-        font-size: 1.2rem; /* Slightly smaller heading size for mobile */
-    }
-
-    .social-icons a {
-        font-size: 1.2rem; /* Adjust icon size */
-        margin: 0 10px; /* Smaller margin for icons */
-        color: #e67e22;
-    }
-
-    .partners img {
-        max-width: 40px; /* Slightly smaller images for mobile */
-    
-    }
-
-    .footer-bottom {
-        font-size: 0.8rem; /* Smaller font size for the footer text */
-    }
-
-    .footer-column li  {
-        color: #f39c12;
-    }
-}
 
 
 
@@ -770,64 +651,32 @@ body {
 
 
 
-
-
-
-
-
-/* Added to css/style.css */
-
-/* Language Toggle */
-.lang-toggle a {
-    display: flex;
-    align-items: center;
-    padding: 8px 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    transition: all 0.3s ease;
-}
-
-.lang-toggle a i {
-    margin-right: 5px;
-}
-
-.lang-toggle a:hover {
-    color: #fff;
-    background: #f39c12;
-    border-radius: 5px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .lang-toggle {
-        margin-top: 10px; /* Space it out in mobile menu */
-    }
-}
-
-
-#wokovuway-wrapper {
-    opacity: 1;
-    transition: opacity 0.4s ease-in-out; /* Matches JS timing */
-}
-
-#wokovuway-wrapper.fade-out-full {
-    opacity: 0; /* Full fade-out instead of 0.2 */
-}
-
-
-
-
-#wokovuway-wrapper.fade-out-full .nav-menu a:hover {
-    color: #333;
-    background: none;
-}
-.nav-menu a.active {
-    color: #fff;
-    background: #f39c12;
-    border-radius: 5px;
+#wokovuway-hero {
+    position: relative;
+    height: 55vh;
+    overflow: hidden;
     z-index: 1;
 }
-.nav-menu a:not(.active) {
-    background: none;
+
+.slider {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Base layer */
+}
+
+.slide {
+    z-index: 5; /* Slide backgrounds */
+}
+
+.slide.active {
+    z-index: 6; /* Active slide */
+}
+
+.slide-content {
+    z-index: 10; /* Content above all slides */
+}
+
+.btn {
+    z-index: 10; /* Button clickable */
 }

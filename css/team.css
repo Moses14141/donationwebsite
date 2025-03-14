@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* ------------------------------------------------------ Reset and Base Styles ------------------------------ */
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Header */
+/* ------------------------------------------------------ Header Style ------------------------------------------------------------ */
 #wokovuway-header {
     background-color: #003d82;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -33,14 +33,12 @@ body {
 }
 
 .nav-container {
-    max-width: 1280px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #f39c12;
-    flex-wrap: nowrap;
 }
 
 .logo-img {
@@ -69,13 +67,10 @@ body {
     display: flex;
     list-style: none;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    flex-wrap: nowrap;
 }
 
 .nav-menu ul li {
-    margin-left: 30px; /* Default spacing for English */
+    margin-left: 30px;
 }
 
 .nav-menu a {
@@ -85,7 +80,6 @@ body {
     padding: 8px 12px;
     transition: all 0.3s ease;
     position: relative;
-    white-space: nowrap;
 }
 
 .nav-menu a::after {
@@ -106,21 +100,10 @@ body {
     transform-origin: bottom left;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover, .nav-menu a.active {
     color: #fff;
     background: #f39c12;
     border-radius: 5px;
-}
-
-.nav-menu a.active {
-    color: #fff;
-    background: #f39c12;
-    border-radius: 5px;
-    z-index: 1;
-}
-
-.nav-menu a:not(.active) {
-    background: none;
 }
 
 .hamburger {
@@ -131,46 +114,7 @@ body {
     z-index: 1001;
 }
 
-.lang-toggle a {
-    display: flex;
-    align-items: center;
-    padding: 8px 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    transition: all 0.3s ease;
-}
-
-.lang-toggle a i {
-    margin-right: 5px;
-}
-
-.lang-toggle a:hover {
-    color: #fff;
-    background: #f39c12;
-    border-radius: 5px;
-}
-
-/* French-Specific Styles (lang="fr") */
-html[lang="fr"] .nav-menu ul li {
-    margin-left: 20px;
-}
-
-html[lang="fr"] .nav-menu a {
-    font-size: 1rem;
-    padding: 6px 10px;
-}
-
-html[lang="fr"] .lang-toggle a {
-    padding: 6px 10px;
-    font-size: 1rem;
-}
-
-html[lang="fr"] .logo-text {
-    font-size: 2px; /* Likely a typo; consider correcting to a larger value like 1.8rem */
-}
-
-/* Team Section */
+/* --------------------------------------------------------- Team Section -------------------------------------------------------------------- */
 #our-team {
     padding: 60px 20px;
     text-align: center;
@@ -217,13 +161,10 @@ html[lang="fr"] .logo-text {
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    transition: all 0.3s ease;
+   
 }
 
-.team-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-}
+
 
 .team-img {
     width: 100%;
@@ -272,13 +213,14 @@ footer {
 .footer-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 15px;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 .footer-column {
     flex: 1;
-    min-width: 220px; /* Adjusted from 2px, likely a typo */
+    min-width: 200px;
 }
 
 .footer-column h4 {
@@ -286,18 +228,38 @@ footer {
     margin-bottom: 20px;
 }
 
-footer a {
-    color: #f39c12; /* All links in footer are orange */
+.footer-column p, .footer-column a {
+    font-size: 0.9rem;
 }
 
-footer a:hover {
-    color: #e67e22; /* Slightly darker orange on hover */
+.footer-column a:hover {
+    color: #f39c12;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
 }
 
 .social-icons a {
     margin: 0 15px;
     font-size: 1.4rem;
     transition: color 0.3s ease;
+    color: #e67e22;
+}
+
+.social-icons a:hover {
+    color: #f39c12;
+}
+
+.partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 160px;
 }
 
 .partners img {
@@ -305,7 +267,6 @@ footer a:hover {
     margin: 15px;
     border-radius: 50%;
     transition: transform 0.3s ease;
-    margin-bottom: 5px;
 }
 
 .partners img:hover {
@@ -319,11 +280,59 @@ footer a:hover {
     font-size: 0.9rem;
 }
 
+.footer-bottom a {
+    color: #f39c12;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #e67e22;
+}
+
+.footer a {
+    color: #f39c12;
+}
+
+.footer-column a {
+    color: #f39c12;
+}
+
+/* Page Transition Styles */
+#wokovuway-wrapper {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#wokovuway-wrapper.fade-out-full {
+    opacity: 0;
+}
+
+/* Language Toggle Styles */
+.lang-toggle a {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle a i {
+    margin-right: 5px;
+    font-size: 1.2rem; /* Slightly larger for visibility */
+}
+
+.lang-toggle a:hover {
+    color: #fff;
+    background: #f39c12;
+    border-radius: 5px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        z-index: 1001;
     }
 
     .nav-menu {
@@ -342,6 +351,10 @@ footer a:hover {
         display: block;
     }
 
+    .logo-text {
+        font-size: 20px;
+    }
+
     .nav-menu ul {
         flex-direction: column;
         gap: 10px;
@@ -352,65 +365,30 @@ footer a:hover {
     }
 
     .lang-toggle {
-        margin-top: 10px;
+        margin-top: 10px; /* Space it out in mobile menu */
     }
 
-    html[lang="fr"] .nav-menu ul li {
-        margin-left: 0;
-    }
-
-    .logo-text {
-        font-size: 1.5rem;
-    }
-
-    #our-team h1 {
+    .page-title {
         font-size: 2rem;
     }
 
-    #our-team .lead {
-        font-size: 1.1rem;
+    .services-section h2 {
+        font-size: 1.8rem;
     }
 
-    .team-item {
-        max-width: 100%;
+    .service-item h3 {
+        font-size: 1.3rem;
     }
 
     .footer-row {
         flex-direction: column;
         align-items: center;
-        gap: 30px;
-    }
-
-    .footer-column {
         text-align: center;
     }
 
-    .footer-column h4 {
-        font-size: 1.2rem;
+    .partners {
+        justify-content: center;
     }
-
-    .social-icons a {
-        font-size: 1.2rem;
-        margin: 0 10px;
-    }
-
-    .partners img {
-        max-width: 40px;
-    }
-
-    .footer-bottom {
-        font-size: 0.8rem;
-    }
-}
-
-/* Page Transition Styles */
-#wokovuway-wrapper {
-    opacity: 1;
-    transition: opacity 0.4s ease-in-out;
-}
-
-#wokovuway-wrapper.fade-out-full {
-    opacity: 0;
 }
 
 #wokovuway-wrapper.fade-out-full .nav-menu a:hover {
