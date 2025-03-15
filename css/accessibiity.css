@@ -67,6 +67,7 @@ body {
 .nav-menu ul {
     display: flex;
     list-style: none;
+    align-items: center;
 }
 
 .nav-menu ul li {
