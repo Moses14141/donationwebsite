@@ -1,21 +1,3 @@
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff;
-    overflow-x: hidden;
-}
-
-/* ----------------------------------------------------------------- Header Styles ---------------------------------------------------- */
-
-
 /* ------------------------------------------------------ Reset and Base Styles ------------------------------ */
 * {
     margin: 0;
@@ -38,6 +20,7 @@ body {
     color: #333;
     background-color: #fff;
     overflow-x: hidden;
+    min-height: 100vh; /* Ensures full height, moved from duplicate */
 }
 
 /* ------------------------------------------------------ Header Style ------------------------------------------------------------ */
@@ -57,6 +40,8 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #f39c12;
+  
+    min-height: 120px; /* Stabilizes height, from earlier fix */
 }
 
 .logo-img {
@@ -85,6 +70,8 @@ body {
     display: flex;
     list-style: none;
     align-items: center;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
 }
 
 .nav-menu ul li {
@@ -98,6 +85,7 @@ body {
     padding: 8px 12px;
     transition: all 0.3s ease;
     position: relative;
+    display: inline-block; /* Consistent sizing */
 }
 
 .nav-menu a::after {
@@ -130,84 +118,10 @@ body {
     cursor: pointer;
     color: #003d82;
     z-index: 1001;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-
-
-
-
-
-
-#wokovuway-header {
-    background-color: #003d82;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-container {
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f39c12;
-}
-
-.logo-img {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    border: 4px solid #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover .logo-img {
-    transform: scale(1.05);
-}
-
-.logo-text {
-    font-size: 1.8rem;
-    color: #003d82;
-    font-weight: 700;
-    margin-left: 10px;
-}
-
-.nav-menu ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-}
-
-.nav-menu ul li {
-    margin-left: 30px;
-}
-
-.nav-menu a {
-    color: #333;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 8px 12px;
-    transition: all 0.3s ease;
-}
-
-.nav-menu a:hover {
-    color: #fff;
-    background: #f39c12;
-  
-}
-
-.hamburger {
-    display: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #003d82;
-}
-
-/* Slogan and Graphic Section */
+/* ------------------------------------------- Slogan and Graphic Section ------------------------------------------------------------- */
 .slogan {
     background: #f7f9fa;
     text-align: center;
@@ -233,7 +147,7 @@ body {
 
 
 
-/* Article Section */
+/* ------------------------------------------------ Article Section ------------------------------------------------------- */
 .article-container {
     max-width: 1280px;
     margin: 0 auto;
