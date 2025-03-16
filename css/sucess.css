@@ -185,7 +185,12 @@ body {
 
 .catalog-items {
     margin-top: 40px;
+
 }
+
+
+
+
 
 .catalog-item {
     flex: 1;
@@ -202,6 +207,9 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
+
+
+
 
 .thumbnail {
     position: relative;
@@ -246,13 +254,25 @@ body {
 
 .description {
     padding: 20px;
+    
 }
 
 .description h3 {
     font-size: 1.5rem;
     color: #003d82;
     margin-bottom: 10px;
+    
 }
+
+/* You can modify the underline further with these properties */
+.description h3 {
+    text-decoration: underline;         /* Basic underline */
+    text-decoration-color: #e67e22;     /* Change underline color */
+    text-decoration-style: solid;       /* Options: solid, double, dotted, dashed, wavy */
+    text-decoration-thickness: 2px;     /* Adjust thickness */
+}
+
+
 
 .description p {
     font-size: 1.1rem;
@@ -456,3 +476,11 @@ footer {
 #wokovuway-wrapper.fade-out {
     opacity: 0.2;
 }
+
+
+
+.thumbnail a {
+    display: block; /* Ensures the link fills the thumbnail area */
+    text-decoration: none; /* Prevents unwanted link styling */
+}
+

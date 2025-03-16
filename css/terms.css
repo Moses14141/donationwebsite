@@ -20,15 +20,13 @@ body {
 }
 
 /* ------------------------------------------------------ Header Style ------------------------------------------------------------ */
-/* Header Style */
 #wokovuway-header {
     background-color: #003d82;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    position: sticky; /* Keep as sticky to match home page */
+    position: sticky;
     top: 0;
-    width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease; /* Limit transition to avoid movement */
+    transition: all 0.3s ease;
 }
 
 .nav-container {
@@ -38,18 +36,13 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #f39c12;
+    min-height: 120px; /* Stabilizes height, from earlier fix */
 }
 
-/* Ensure wrapper content isn't hidden behind sticky header */
-#wokovuway-wrapper {
-    padding-top: 0; /* Remove padding-top since sticky doesn't overlap like fixed */
-    opacity: 1;
-    transition: opacity 0.4s ease-in-out;
+.logo {
+    text-decoration: none; /* Added to remove underline from the entire link */
 }
 
-#wokovuway-wrapper.fade-out-full {
-    opacity: 0;
-}
 .logo-img {
     height: 80px;
     width: 80px;
@@ -66,16 +59,20 @@ body {
     color: #003d82;
     font-weight: 700;
     margin-left: 10px;
+    text-decoration: none; /* Still included, but .logo rule should suffice */
 }
 
 .logo:hover .logo-img {
     transform: scale(1.05);
+    text-decoration: none;
 }
 
 .nav-menu ul {
     display: flex;
     list-style: none;
     align-items: center;
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
 }
 
 .nav-menu ul li {
@@ -89,6 +86,8 @@ body {
     padding: 8px 12px;
     transition: all 0.3s ease;
     position: relative;
+    display: inline-block; /* Consistent sizing */
+    text-decoration: none;
 }
 
 .nav-menu a::after {
@@ -102,11 +101,13 @@ body {
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
+    text-decoration: none;
 }
 
 .nav-menu a:hover::after, .nav-menu a.active::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+    text-decoration: none;
 }
 
 .nav-menu a:hover, .nav-menu a.active {
@@ -121,7 +122,9 @@ body {
     cursor: pointer;
     color: #003d82;
     z-index: 1001;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
+
 /* ------------------------------------------------------------------------------ Main Content ------------------------------------- */
 .container {
     max-width: 1280px;
@@ -347,6 +350,7 @@ footer {
 
     .logo-text {
         font-size: 20px;
+        text-decoration: none;
     }
 
     .nav-menu ul {
