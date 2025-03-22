@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     const slideInterval = 3000; // 3 seconds
 
-    console.log('Elements loaded:', { hamburger, navMenu, wrapper, currentPage, navLinks: navLinks.length, slides: slides.length });
-
     // Navigation Link Handling
     const resetLinkStyles = (links) => {
         links.forEach(link => {
@@ -55,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Slider Functionality
     if (slides.length > 0) {
-        // Create dots dynamically
         slides.forEach((_, index) => {
             const dot = document.createElement('div');
             dot.classList.add('dot');
@@ -65,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const dots = document.querySelectorAll('.dot');
 
-        // Function to show a specific slide
         const showSlide = (index) => {
             slides.forEach((slide, i) => {
                 slide.classList.toggle('active', i === index);
@@ -75,40 +71,76 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        // Automatic slide transition
         const nextSlide = () => {
-            currentSlide = (currentSlide + 1) % slides.length; // Loops infinitely
+            currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
         };
 
-        // Start auto-sliding non-stop
         let slideTimer = setInterval(nextSlide, slideInterval);
 
-        // Dot click handling (optional manual control)
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                clearInterval(slideTimer); // Pause auto-slide on manual interaction
+                clearInterval(slideTimer);
                 currentSlide = index;
                 showSlide(currentSlide);
-                slideTimer = setInterval(nextSlide, slideInterval); // Restart auto-slide
+                slideTimer = setInterval(nextSlide, slideInterval);
             });
         });
 
-        // Optional: Pause on hover (remove if you want non-stop even on hover)
         const slider = document.querySelector('.slider');
         slider.addEventListener('mouseenter', () => clearInterval(slideTimer));
         slider.addEventListener('mouseleave', () => {
             slideTimer = setInterval(nextSlide, slideInterval);
         });
-    } else {
-        console.warn('No slides found in #wokovuway-hero');
     }
 
     // Video Autoplay
     const video = document.querySelector('#wokovuway-support video');
     if (video) {
         video.play().catch(error => console.error('Autoplay failed:', error));
-    } else {
-        console.warn('Support video not found');
+    }
+
+    // Counting Animation for Impact Numbers
+    const impactItems = document.querySelectorAll('.impact-item h3');
+    const impactSection = document.querySelector('#wokovuway-impact');
+    let hasAnimated = false;
+
+    const animateCount = (element, target, duration) => {
+        let start = 0;
+        const increment = target / (duration / 16); // 60 FPS approximation
+        const plusSign = element.textContent.includes('+') ? '+' : '';
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = Math.floor(target).toLocaleString() + plusSign;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start).toLocaleString() + plusSign;
+            }
+        }, 16);
+    };
+
+    const startCountAnimation = () => {
+        if (hasAnimated) return;
+        impactItems.forEach(item => {
+            const text = item.textContent.replace(/[^0-9]/g, ''); // Extract number
+            const target = parseInt(text, 10);
+            animateCount(item, target, 2000); // 2 seconds duration
+        });
+        hasAnimated = true;
+    };
+
+    // Intersection Observer to trigger animation when section is in view
+    const observer = new IntersectionObserver(
+        (entries) => {
+            if (entries[0].isIntersecting) {
+                startCountAnimation();
+            }
+        },
+        { threshold: 0.5 } // Trigger when 50% of the section is visible
+    );
+
+    if (impactSection) {
+        observer.observe(impactSection);
     }
 });

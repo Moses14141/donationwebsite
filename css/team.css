@@ -114,6 +114,127 @@ body {
     z-index: 1001;
 }
 
+/* --------------------------------------------------------- Team Intro Section -------------------------------------------------------------------- */
+/* --------------------------------------------------------- Team Intro Section -------------------------------------------------------------------- */
+#team-intro {
+    padding: 80px 20px; /* Increased padding for more breathing room */
+    background: linear-gradient(135deg, #f7f9fa 0%, #ffffff 100%); /* Subtle gradient for depth */
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.intro-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Slightly larger gap for better separation */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.intro-content {
+    flex: 1;
+    min-width: 320px; /* Slightly wider min-width for better text flow */
+    padding: 30px; /* More padding for a spacious feel */
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for a layered effect */
+    border-radius: 15px;
+   
+}
+
+
+
+.intro-content h2 {
+    font-size: 2.8rem; /* Slightly larger for emphasis */
+    color: #003d82;
+    margin-bottom: 20px;
+    font-weight: 700; /* Bolder for impact */
+    text-transform: uppercase; /* Uppercase for a modern, strong look */
+    letter-spacing: 1px; /* Slight spacing for elegance */
+    background: linear-gradient(to right, #003d82, #f39c12); /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1s ease-in-out; /* Subtle animation on load */
+}
+
+.intro-content p {
+    font-size: 1.3rem; /* Slightly larger for readability */
+    color: #555; /* Darker gray for better contrast */
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.8; /* Improved readability */
+    font-style: italic; /* Italic for a personal touch */
+}
+
+.intro-image {
+    flex: 1;
+    min-width: 320px; /* Match intro-content min-width */
+    position: relative;
+    padding: 20px; /* Padding to frame the image */
+}
+
+.intro-image img {
+    width: 100%;
+    max-width: 500px; /* Slightly smaller max-width for balance */
+    height: auto;
+    border-radius: 50%; /* Circular shape for a modern, friendly vibe */
+    
+    object-fit: cover; /* Ensure image fills the circular frame */
+}
+
+.intro-image img:hover {
+    transform: scale(1.05) rotate(2deg); /* Subtle zoom and tilt on hover */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Background Overlay for Extra Flair */
+#team-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(243, 156, 18, 0.1) 0%, rgba(0, 61, 130, 0.05) 100%); /* Subtle radial gradient */
+    z-index: 1;
+    pointer-events: none; /* Ensures it doesn’t interfere with clicks */
+}
+
+/* Animation Keyframes */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design Adjustments (already in your CSS, updated here) */
+@media (max-width: 768px) {
+    #team-intro {
+        padding: 40px 15px; /* Reduced padding for mobile */
+    }
+
+    .intro-content h2 {
+        font-size: 1.8rem; /* Smaller heading */
+    }
+
+    .intro-content p {
+        font-size: 1rem; /* Smaller paragraph */
+    }
+
+    .intro-image img {
+        max-width: 100%; /* Full width on mobile */
+        border-radius: 50%; /* Maintain circular shape */
+    }
+}
+
 /* --------------------------------------------------------- Team Section -------------------------------------------------------------------- */
 #our-team {
     padding: 60px 20px;
@@ -161,21 +282,19 @@ body {
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-   
 }
-
-
 
 .team-img {
     width: 100%;
     height: 500px;
     object-fit: cover;
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.6s ease-in-out; /* Smooth fade-in over 0.6s */
+    object-position: top;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
 }
 
 .team-img.loaded {
-    opacity: 1; /* Fade to full visibility when loaded */
+    opacity: 1;
 }
 
 .team-description {
@@ -320,7 +439,7 @@ footer {
 
 .lang-toggle a i {
     margin-right: 5px;
-    font-size: 1.2rem; /* Slightly larger for visibility */
+    font-size: 1.2rem;
 }
 
 .lang-toggle a:hover {
@@ -365,19 +484,7 @@ footer {
     }
 
     .lang-toggle {
-        margin-top: 10px; /* Space it out in mobile menu */
-    }
-
-    .page-title {
-        font-size: 2rem;
-    }
-
-    .services-section h2 {
-        font-size: 1.8rem;
-    }
-
-    .service-item h3 {
-        font-size: 1.3rem;
+        margin-top: 10px;
     }
 
     .footer-row {
@@ -389,11 +496,67 @@ footer {
     .partners {
         justify-content: center;
     }
+
+    /* Adjustments for Team Intro Section on Mobile */
+    #team-intro {
+        padding: 40px 15px;
+    }
+
+    .intro-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .intro-content p {
+        font-size: 1rem;
+    }
+
+    .intro-image img {
+        max-width: 100%;
+    }
+
+    /* Adjustments for Team Section on Mobile */
+    #our-team {
+        padding: 40px 15px;
+    }
+
+    #our-team h1 {
+        font-size: 2rem;
+    }
+
+    #our-team .lead {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+
+    .team-item {
+        min-width: 200px;
+        max-width: 250px;
+    }
+
+    .team-img {
+        height: 250px;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .team-description {
+        padding: 15px;
+    }
+
+    .team-description h3 {
+        font-size: 1.2rem;
+    }
+
+    .team-description .role {
+        font-size: 0.9rem;
+    }
+
+    .team-description p {
+        font-size: 0.85rem;
+    }
 }
 
 #wokovuway-wrapper.fade-out-full .nav-menu a:hover {
     color: #333;
     background: none;
 }
-
-/* Removed redundant sections (e.g., hero, features) not present in team.html */
